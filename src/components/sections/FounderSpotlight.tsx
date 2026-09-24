@@ -49,7 +49,7 @@ export function FounderSpotlight() {
                 visualised in 2D &amp; 3D before a single wall is touched.
               </p>
 
-              <div className="mt-6 grid grid-cols-4 gap-3 border-t border-[#E5DED4] pt-5">
+              <div className="mt-6 grid grid-cols-2 gap-3 border-t border-[#E5DED4] pt-5 min-[420px]:grid-cols-4">
                 {stats.map((s) => (
                   <div key={s.label}>
                     <p className="font-editorial text-lg text-[#171411] sm:text-xl">{s.value}</p>

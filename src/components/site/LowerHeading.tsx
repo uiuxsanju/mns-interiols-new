@@ -18,17 +18,19 @@ export function LowerHeading({
   return (
     <div
       className={cn(
-        "flex flex-col gap-6 md:flex-row md:items-end md:justify-between",
+        "flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-6",
         align === "center" && "md:flex-col md:items-center md:text-center",
       )}
     >
       <div className={cn("max-w-2xl", align === "center" && "mx-auto")}>
         <p className="eyebrow-mns">{eyebrow}</p>
-        <h2 className="font-editorial mt-4 text-[2rem] leading-[1.12] text-[#171411] sm:text-[2.5rem] lg:text-[3rem]">
+        <h2 className="font-editorial text-display-2 mt-2.5 text-balance text-[#171411]">
           {title}
         </h2>
         {desc && (
-          <p className="mt-4 text-base leading-relaxed text-[#6B625A] sm:text-[1.05rem]">{desc}</p>
+          <p className="mt-3 text-[0.95rem] leading-relaxed text-[#6B625A] sm:mt-4 sm:text-base">
+            {desc}
+          </p>
         )}
       </div>
       {action}

@@ -34,7 +34,7 @@ export function Founders() {
           desc="A passionate team committed to creating beautiful, functional spaces."
         />
 
-        <div className="mt-12 lg:mt-16">
+        <div className="section-gap">
           <div className="mx-auto flex max-w-4xl flex-col gap-6">
             {founders.map((f, i) => (
               <Reveal key={f.name} as="article" delay={i * 90} className="flex-1">

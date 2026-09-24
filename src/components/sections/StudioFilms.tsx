@@ -18,7 +18,7 @@ export function StudioFilms() {
   const activeFilm = active ? studioFilms.find((f) => f.id === active) : null;
 
   return (
-    <section className="container-x py-16 lg:py-20">
+    <section className="container-x section-y">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-xs font-medium tracking-[0.2em] text-primary uppercase">Studio Notes</p>

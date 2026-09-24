@@ -79,7 +79,7 @@ export function Testimonials() {
           }
         />
 
-        <Reveal className="mt-12 lg:mt-16">
+        <Reveal className="section-gap">
           <div
             ref={trackRef}
             className="-mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-4 pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"

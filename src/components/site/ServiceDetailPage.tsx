@@ -39,7 +39,7 @@ export function ServiceDetailPage({ service }: { service: ServiceItem }) {
       </section>
 
       {/* Intro + benefits + CTA */}
-      <section className="container-x grid gap-10 py-14 lg:grid-cols-[1.4fr_1fr] lg:py-20">
+      <section className="container-x grid gap-8 py-10 sm:py-12 lg:grid-cols-[1.4fr_1fr] lg:gap-10 lg:py-20">
         <div>
           <h2 className="font-display text-2xl text-ink">Overview</h2>
           <p className="mt-4 leading-relaxed text-muted-foreground">{service.intro}</p>
@@ -76,12 +76,12 @@ export function ServiceDetailPage({ service }: { service: ServiceItem }) {
       </section>
 
       {/* Our Work gallery */}
-      <section className="container-x pb-14 lg:pb-20">
+      <section className="container-x pb-10 sm:pb-12 lg:pb-20">
         <h2 className="font-display text-2xl text-ink">Our Work</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           A look at {service.title.toLowerCase()} from recent MNS Interiors projects.
         </p>
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3">
+        <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
           {service.gallery.map((img, i) => (
             <button
               key={i}
@@ -112,9 +112,9 @@ export function ServiceDetailPage({ service }: { service: ServiceItem }) {
       )}
 
       {/* Related services */}
-      <section className="container-x pb-16 lg:pb-24">
+      <section className="container-x pb-12 sm:pb-14 lg:pb-24">
         <h2 className="font-display text-2xl text-ink">Related Services</h2>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-5 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
           {related.map((r) => (
             <Link
               key={r.slug}

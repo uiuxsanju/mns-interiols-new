@@ -38,7 +38,7 @@ function AboutPage() {
         image={images.foyer}
       />
 
-      <section className="container-x py-20 lg:py-28">
+      <section className="container-x section-y">
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
             <h2 className="text-3xl leading-tight sm:text-4xl">Consultation, Designing & Execution — under one roof</h2>
@@ -70,7 +70,7 @@ function AboutPage() {
         </dl>
       </section>
 
-      <section className="bg-sand py-20 lg:py-28">
+      <section className="bg-sand section-y">
         <div className="container-x">
           <SectionHeading
             eyebrow="How we work"

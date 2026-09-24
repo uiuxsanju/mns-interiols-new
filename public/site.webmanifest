@@ -1,0 +1,12 @@
+{
+  "name": "MNS Interiors — Make Nice Space",
+  "short_name": "MNS Interiors",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ],
+  "theme_color": "#B95827",
+  "background_color": "#FBF9F5",
+  "display": "standalone",
+  "start_url": "/"
+}

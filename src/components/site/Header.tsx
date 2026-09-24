@@ -47,16 +47,18 @@ export function Header() {
         scrolled ? "border-border bg-background/92 backdrop-blur-md" : "border-transparent bg-background",
       )}
     >
-      <div className="container-x grid h-20 grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-2 lg:flex lg:h-24 lg:justify-between lg:py-3">
-        <Link to="/" className="flex min-w-0 shrink-0 items-center gap-3">
+      <div className="container-x grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:h-20 lg:flex lg:h-24 lg:justify-between lg:py-3">
+        <Link to="/" className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3">
           <img
             src={logoMark}
             alt={`${brand.name} logo`}
-            className="h-12 w-auto shrink-0 object-contain sm:h-14 lg:h-16"
+            className="h-9 w-auto shrink-0 object-contain sm:h-12 lg:h-16"
           />
 
           <span className="min-w-0 leading-tight">
-            <span className="block truncate font-display text-xl whitespace-nowrap text-ink sm:text-2xl xl:text-2xl 2xl:text-3xl">{brand.name}</span>
+            <span className="block truncate font-display text-base whitespace-nowrap text-ink sm:text-xl lg:text-2xl 2xl:text-3xl">
+              {brand.name}
+            </span>
             <span className="hidden text-[0.68rem] tracking-[0.24em] text-muted-foreground uppercase sm:block sm:text-xs lg:text-sm">
               {brand.tagline}
             </span>
@@ -101,29 +103,32 @@ export function Header() {
 
       <div
         className={cn(
-          "fixed inset-x-0 top-20 bottom-0 z-40 origin-top bg-background transition-all duration-300 lg:top-24 xl:hidden",
+          "fixed inset-x-0 top-16 bottom-0 z-40 origin-top bg-background transition-all duration-300 sm:top-20 lg:top-24 xl:hidden",
           menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none -translate-y-2 opacity-0",
         )}
       >
-        <div className="container-x flex h-full flex-col overflow-y-auto pt-6 pb-10">
+        <div className="container-x flex h-full flex-col overflow-y-auto pt-4 pb-8">
           <nav className="flex flex-col divide-y divide-border">
             {nav.map((item, i) => (
               <Link
                 key={item.to}
                 to={item.to}
                 style={{ animationDelay: `${i * 35}ms` }}
-                className={cn("py-4 font-display text-2xl text-ink", menuOpen && "rise-in")}
+                className={cn(
+                  "py-3.5 font-display text-lg text-ink sm:py-4 sm:text-xl",
+                  menuOpen && "rise-in",
+                )}
                 activeProps={{ className: "text-primary" }}
               >
                 {item.label}
               </Link>
             ))}
-            <Link to="/about" className="py-4 font-display text-2xl text-ink">
+            <Link to="/about" className="py-3.5 font-display text-lg text-ink sm:py-4 sm:text-xl">
               About
             </Link>
           </nav>
-          <div className="mt-8 space-y-3">
-            <Button onClick={openEstimate} size="lg" className="w-full rounded-full">
+          <div className="mt-6 space-y-3">
+            <Button onClick={openEstimate} className="h-11 w-full rounded-full">
               Get Free Estimate
             </Button>
             <a href={brand.phoneHref} className="block text-center text-sm text-muted-foreground">

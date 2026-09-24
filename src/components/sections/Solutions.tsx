@@ -3,14 +3,14 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 
 export function Solutions() {
   return (
-    <section className="bg-sand py-20 lg:py-28">
+    <section className="bg-sand section-y">
       <div className="container-x">
         <SectionHeading
           eyebrow="End-to-End Solutions"
           title="Fourteen services under one contract"
           desc="From carcass to cushions. You never coordinate between vendors — we do it, and we own the timeline."
         />
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
+        <div className="section-gap grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
           {solutions.map((s) => (
             <figure
               key={s.title}

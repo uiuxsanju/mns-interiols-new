@@ -38,7 +38,7 @@ function EstimatePage() {
         image={images.kitchen}
       />
 
-      <section className="container-x py-20 lg:py-28">
+      <section className="container-x section-y">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <h2 className="text-3xl sm:text-4xl">What you get</h2>

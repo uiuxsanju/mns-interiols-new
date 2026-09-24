@@ -19,7 +19,7 @@ const cards = [
 export function EstimateSection() {
   const { openEstimate } = useEstimate();
   return (
-    <section id="estimate" className="bg-sand py-20 lg:py-28">
+    <section id="estimate" className="bg-sand section-y">
       <div className="container-x">
         <SectionHeading
           eyebrow="Transparent pricing"
@@ -27,7 +27,7 @@ export function EstimateSection() {
           desc="An itemised, line-by-line quote in 24 hours. No account, no obligation, no hidden charges."
           align="center"
         />
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="section-gap grid gap-6 md:grid-cols-2">
           {cards.map((c) => (
             <article
               key={c.title}

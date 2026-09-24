@@ -3,14 +3,14 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 
 export function Process() {
   return (
-    <section className="container-x py-20 lg:py-28">
+    <section className="container-x section-y">
       <SectionHeading
         eyebrow="Design to Move-In"
         title="Seven steps, one project manager"
         desc="A predictable path from first call to handover, with fixed checkpoints you sign off at every stage."
       />
 
-      <ol className="mt-12 grid grid-cols-2 gap-3.5 sm:grid-cols-3 sm:gap-4 lg:mt-16 lg:grid-cols-4 xl:grid-cols-7">
+      <ol className="section-gap grid grid-cols-2 gap-3.5 sm:grid-cols-3 sm:gap-4 lg:mt-16 lg:grid-cols-4 xl:grid-cols-7">
         {processSteps.map((s, i) => (
           <li
             key={s.no}

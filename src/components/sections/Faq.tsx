@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 
 export function Faq() {
   return (
-    <section id="faq" className="container-x py-20 lg:py-28">
+    <section id="faq" className="container-x section-y">
       <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <SectionHeading
           eyebrow="FAQ"

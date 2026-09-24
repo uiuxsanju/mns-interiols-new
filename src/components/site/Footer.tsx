@@ -39,9 +39,9 @@ const cols = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-border bg-sand">
-      <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-5 lg:py-20">
-        <div className="lg:col-span-2">
+    <footer className="mt-12 border-t border-border bg-sand sm:mt-16 lg:mt-24">
+      <div className="container-x grid grid-cols-2 gap-8 py-10 sm:gap-10 sm:py-14 lg:grid-cols-5 lg:gap-12 lg:py-20">
+        <div className="col-span-2 lg:col-span-2">
           <div className="flex items-center gap-2.5">
             <img src={logoMark} alt={`${brand.name} logo`} className="h-9 w-auto object-contain" />
             <span className="font-display text-xl text-ink">{brand.name}</span>
@@ -72,14 +72,16 @@ export function Footer() {
         </div>
 
         {cols.map((col) => (
-          <div key={col.title}>
-            <h3 className="font-sans text-xs tracking-[0.2em] text-ink uppercase">{col.title}</h3>
-            <ul className="mt-5 space-y-3 text-sm">
+          <div key={col.title} className="min-w-0">
+            <h3 className="font-sans text-[0.68rem] tracking-[0.2em] text-ink uppercase sm:text-xs">
+              {col.title}
+            </h3>
+            <ul className="mt-2.5 text-[0.82rem] sm:mt-4 sm:text-sm">
               {col.links.map((l) => (
                 <li key={l.label}>
                   <Link
                     to={l.to}
-                    className="text-muted-foreground transition-colors hover:text-primary"
+                    className="inline-block py-1.5 text-muted-foreground transition-colors hover:text-primary"
                   >
                     {l.label}
                   </Link>
@@ -89,41 +91,47 @@ export function Footer() {
           </div>
         ))}
 
-        <div>
-          <h3 className="font-sans text-xs tracking-[0.2em] text-ink uppercase">Contact</h3>
-          <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+        {/* Contact needs the full row on mobile — the address and email are far
+            too long to sit in a half-width column without overflowing. */}
+        <div className="col-span-2 min-w-0 lg:col-span-1">
+          <h3 className="font-sans text-[0.68rem] tracking-[0.2em] text-ink uppercase sm:text-xs">
+            Contact
+          </h3>
+          <ul className="mt-2.5 text-[0.82rem] text-muted-foreground sm:mt-4 sm:text-sm">
             <li>
-              <a href={brand.phoneHref} className="flex items-start gap-2 hover:text-primary">
+              <a href={brand.phoneHref} className="flex items-start gap-2 py-1.5 hover:text-primary">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0" /> {brand.phone}
               </a>
             </li>
-            <li>
-              <a href={`mailto:${brand.email}`} className="flex items-start gap-2 hover:text-primary">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0" /> {brand.email}
+            <li className="min-w-0">
+              <a href={`mailto:${brand.email}`} className="flex items-start gap-2 py-1.5 hover:text-primary">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0" />
+                <span className="min-w-0 break-all">{brand.email}</span>
               </a>
             </li>
             <li>
-              <a href={brand.whatsapp} target="_blank" rel="noreferrer noopener" className="flex items-start gap-2 hover:text-primary">
+              <a href={brand.whatsapp} target="_blank" rel="noreferrer noopener" className="flex items-start gap-2 py-1.5 hover:text-primary">
                 <MessageCircle className="mt-0.5 h-4 w-4 shrink-0" /> WhatsApp us
               </a>
             </li>
-            <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0" /> {brand.address}
+            <li className="flex min-w-0 items-start gap-2 pt-1.5">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+              <span className="min-w-0 break-words">{brand.address}</span>
             </li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-border">
-        <div className="container-x flex flex-col gap-3 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>
+        <div className="container-x flex flex-col gap-1 py-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:py-6">
+          <p className="py-1">
             © {new Date().getFullYear()} {brand.name}. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            <Link to="/contact" className="hover:text-primary">
+          <div className="flex gap-5 sm:gap-6">
+            <Link to="/contact" className="inline-block py-1.5 hover:text-primary">
               Privacy Policy
             </Link>
-            <Link to="/contact" className="hover:text-primary">
+            <Link to="/contact" className="inline-block py-1.5 hover:text-primary">
               Terms &amp; Conditions
             </Link>
           </div>

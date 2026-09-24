@@ -35,7 +35,7 @@ export function DesignConcepts() {
   const tabs = ["All", ...renderRooms];
 
   return (
-    <section className="container-x py-16 lg:py-20">
+    <section className="container-x section-y">
       <div className="scrollbar-none flex gap-2 overflow-x-auto pb-1">
         {tabs.map((t) => (
           <button
@@ -56,7 +56,7 @@ export function DesignConcepts() {
         ))}
       </div>
 
-      <div className="mt-8 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
+      <div className="mt-6 columns-2 gap-3 sm:mt-8 sm:gap-5 lg:columns-3 [&>*]:mb-3 sm:[&>*]:mb-5">
         {items.map((item, i) => (
           <button
             key={`${item.title}-${i}`}
@@ -74,9 +74,11 @@ export function DesignConcepts() {
               height={900}
               className={cn("w-full object-cover", i % 3 === 1 ? "aspect-square" : "aspect-4/3")}
             />
-            <div className="flex items-center justify-between gap-3 px-5 py-4">
-              <span className="truncate text-sm font-medium text-ink">{item.title}</span>
-              <span className="shrink-0 text-[0.68rem] tracking-[0.18em] text-muted-foreground uppercase">
+            <div className="flex flex-col gap-1 px-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-3 sm:px-5 sm:py-4">
+              <span className="line-clamp-2 text-[0.78rem] leading-snug font-medium text-ink sm:truncate sm:text-sm">
+                {item.title}
+              </span>
+              <span className="shrink-0 text-[0.62rem] tracking-[0.16em] text-muted-foreground uppercase sm:text-[0.68rem] sm:tracking-[0.18em]">
                 {item.room}
               </span>
             </div>
