@@ -27,7 +27,7 @@ const localBusiness = {
   url: siteUrl,
   image: `${siteUrl}/og-image.jpg`,
   logo: `${siteUrl}/favicon.ico`,
-  telephone: "+91-8074808099",
+  telephone: ["+91-8074808099", "+91-8309315989"],
   email: brand.email,
   address: {
     "@type": "PostalAddress",

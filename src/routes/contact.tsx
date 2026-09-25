@@ -38,16 +38,19 @@ function ContactPage() {
           <div>
             <h2 className="text-3xl sm:text-4xl">Reach us directly</h2>
             <ul className="mt-8 space-y-6">
-              <li>
-                <a href={brand.phoneHref} className="flex items-start gap-4 group">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-secondary text-primary">
-                    <Phone className="h-5 w-5" />
-                  </span>
-                  <span>
-                    <span className="block text-xs tracking-[0.2em] text-muted-foreground uppercase">Phone</span>
-                    <span className="block text-lg text-ink group-hover:text-primary">{brand.phone}</span>
-                  </span>
-                </a>
+              <li className="flex items-start gap-4">
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-secondary text-primary">
+                  <Phone className="h-5 w-5" />
+                </span>
+                <span>
+                  <span className="block text-xs tracking-[0.2em] text-muted-foreground uppercase">Phone</span>
+                  <a href={brand.phoneHref} className="block text-lg whitespace-nowrap text-ink hover:text-primary">
+                    {brand.phone}
+                  </a>
+                  <a href={brand.phone2Href} className="block text-lg whitespace-nowrap text-ink hover:text-primary">
+                    {brand.phone2}
+                  </a>
+                </span>
               </li>
               <li>
                 <a href={brand.whatsapp} target="_blank" rel="noreferrer noopener" className="flex items-start gap-4 group">

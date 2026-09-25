@@ -5,13 +5,14 @@ import wardrobe from "@/assets/portfolio/wardrobe-sliding-cream.webp";
 import bathroom from "@/assets/portfolio/bathroom-circular-pattern-sink.webp";
 import office from "@/assets/portfolio/glass-partition-door-2.webp";
 import pooja from "@/assets/portfolio/pooja-jali-cnc-unit.webp";
-import tvunit from "@/assets/portfolio/tv-unit-gold-accent.webp";
-import ceiling from "@/assets/portfolio/ceiling-blue-wave-led.webp";
-import spacesaving from "@/assets/portfolio/bedroom-tv-wardrobe-combo.webp";
+import tvunit from "@/assets/portfolio/tv-unit-glass-partition-dark.webp";
+import ceiling from "@/assets/portfolio/ceiling-spiral-cove-marble.webp";
+import spacesaving from "@/assets/portfolio/wardrobe-gray-gold-trim-sekhar.webp";
 import foyer from "@/assets/portfolio/entrance-hexagon.webp";
 import crockery from "@/assets/portfolio/glass-cabinet-bar-unit.webp";
 import kids from "@/assets/portfolio/bunk-bed-kids-pink.webp";
-import hero from "@/assets/portfolio/living-room-tv.webp";
+import heroPortfolio from "@/assets/portfolio/living-room-tv.webp";
+import heroBanner from "@/assets/portfolio/interior-design-banner.webp";
 import lighting from "@/assets/portfolio/hexagon-marble-accent-chandelier.webp";
 import wallpaper from "@/assets/portfolio/wallpaper-geometric-accent.webp";
 import wallPaint from "@/assets/portfolio/bedroom-orange-accent.webp";
@@ -30,9 +31,13 @@ const curatedRenderItems = renderImages.slice(0, 12).map((r) => ({
   title: r.title,
 }));
 
-// All real MNS Interiors completed-project photos (no stock imagery).
+// Real MNS Interiors completed-project photos, plus one exception:
+// `heroBanner` is a licensed decorative stock image used only as the
+// homepage Hero's background (not claimed as MNS's own completed work —
+// see the Hero component's alt text).
 export const images = {
-  hero,
+  heroBanner,
+  heroPortfolio,
   kitchen,
   living,
   bedroom,
@@ -53,9 +58,11 @@ export const brand = {
   tagline: "Make Nice Space",
   phone: "+91 80748 08099",
   phoneHref: "tel:+918074808099",
+  phone2: "+91 83093 15989",
+  phone2Href: "tel:+918309315989",
   whatsapp: "https://wa.me/918074808099?text=Hi%20MNS%20Interiors%2C%20I%27d%20like%20a%20free%20estimate",
   email: "mnsinteriors399@gmail.com",
-  address: "# 10-385/1/11, Sri Shirdi Sai Vet. Colony, Visalakshinagar, Hanumanthuwaka Jn., Visakhapatnam 530043",
+  address: "VUDA Colony, Madhurawada, Visakhapatnam 530048",
 };
 
 // Dedicated WhatsApp enquiry number for Portfolio & Services buttons.
@@ -117,16 +124,16 @@ export const processSteps = [
 
 export const galleryItems = [
   { image: kitchen, cat: "Kitchen", title: "L-shaped kitchen with cove lighting" },
-  { image: hero, cat: "Living Room", title: "Living room with wall-to-wall TV unit" },
+  { image: heroPortfolio, cat: "Living Room", title: "Living room with wall-to-wall TV unit" },
   { image: bedroom, cat: "Bedroom", title: "Bedroom with panelled headboard wall" },
   { image: wardrobe, cat: "Wardrobe", title: "Two-tone sliding wardrobe" },
   { image: bathroom, cat: "Bathroom", title: "Vanity with backlit mirror" },
   { image: office, cat: "Office", title: "Glass-partition office cabin" },
-  { image: tvunit, cat: "Living Room", title: "Floating TV unit with gold inlay" },
+  { image: tvunit, cat: "Living Room", title: "TV unit with sliding glass panel" },
   { image: crockery, cat: "Kitchen", title: "Glass-front display & bar unit" },
   { image: kids, cat: "Bedroom", title: "Bunk-bed kids room" },
-  { image: ceiling, cat: "Living Room", title: "Wave-profile LED ceiling" },
-  { image: spacesaving, cat: "Bedroom", title: "Bedroom with wardrobe & TV wall" },
+  { image: ceiling, cat: "Living Room", title: "Spiral cove ceiling with marble TV wall" },
+  { image: spacesaving, cat: "Bedroom", title: "Wardrobe with marble finish & window seat" },
   { image: pooja, cat: "Living Room", title: "CNC jali pooja unit" },
   { image: foyer, cat: "Living Room", title: "Hexagon-panel foyer wall" },
   { image: living, cat: "Living Room", title: "Marble-backed TV wall" },
@@ -135,12 +142,14 @@ export const galleryItems = [
 
 export const galleryTabs = ["All", "Kitchen", "Living Room", "Bedroom", "Wardrobe", "Bathroom", "Office", "3D Design"];
 
-// Real client feedback, transcribed from MNS Interiors' own portfolio deck
-// (WhatsApp thank-you messages from completed Vizag projects). Only
-// Visakhapatnam-city clients are listed here — no photo is shown because we
-// don't have consented, publishable photos of these clients, so the card
-// falls back to an initials avatar instead of a stock/placeholder face.
-// No star ratings are shown — the source messages don't contain any.
+// Real client feedback. The first two are transcribed verbatim from MNS
+// Interiors' own portfolio deck (WhatsApp thank-you messages from completed
+// Vizag projects) — no star rating shown for these, since the source
+// messages don't contain any. The remaining five are confirmed real client
+// feedback from completed Vizag-area projects (site owner-provided), given
+// here in the site's own short-quote format. No photo is shown for any of
+// them — no consented, publishable client photos — so the card falls back
+// to an initials avatar instead of a stock/placeholder face.
 export const testimonials = [
   {
     name: "Naresh & Srinu",
@@ -156,13 +165,44 @@ export const testimonials = [
     quote:
       "Thank you for your hard work and effort to give a crazy and stunning look to our house. All my friends were amazed with your work, mainly the finishing.",
   },
+  {
+    name: "Pradeep Garu",
+    city: "Nagaram Palem, Vizag",
+    project: "Home Interiors",
+    rating: 5,
+    quote: "Beautiful design & excellent finishing.",
+  },
+  {
+    name: "Raju Garu",
+    city: "Gajuwaka, Vizag",
+    project: "Home Interiors",
+    rating: 5,
+    quote: "Very professional work from design to execution.",
+  },
+  {
+    name: "Santosh Garu",
+    city: "Ranasthalam, Srikakulam",
+    project: "Home Interiors",
+    rating: 5,
+    quote: "Quality of work and finishing exceeded our expectations.",
+  },
+  {
+    name: "Satish Garu",
+    city: "MVV City, Vizag",
+    project: "Home Interiors",
+    rating: 5,
+    quote: "Exactly what we wanted, with great attention to detail.",
+  },
+  {
+    name: "Srinivas Garu",
+    city: "Bheemili, Vizag",
+    project: "Home Interiors",
+    rating: 5,
+    quote: "Creative designs and quality execution — our home looks premium.",
+  },
 ];
 
 export const faqs = [
-  {
-    q: "How does the interior design process work?",
-    a: "It runs in seven stages: consultation, designer meeting, 3D design, finalisation, factory manufacturing, on-site installation and handover. You get a single project manager across all of them.",
-  },
   {
     q: "How much do home interiors cost?",
     a: "A 2BHK typically ranges from ₹4.5–9 lakh and a 3BHK from ₹7–16 lakh, depending on scope, core material and finishes. Your estimate is itemised line by line before anything is booked.",

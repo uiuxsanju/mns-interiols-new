@@ -305,3 +305,13 @@
     padding-block: 7rem;
   }
 }
+
+/* Hero carousel: active slide indicator fills over one slide interval. */
+@keyframes hero-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}

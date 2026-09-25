@@ -1,17 +1,18 @@
-import { images } from "@/lib/site-data";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { useEstimate } from "@/components/site/estimate-context";
+import fullHomeInteriors from "@/assets/portfolio/living-room-green-wall-tv-unit.webp";
+import modularKitchen from "@/assets/portfolio/kitchen-marble-island-pendant-lights.webp";
 
 const cards = [
   {
     title: "Full Home Interiors",
-    image: images.living,
+    image: fullHomeInteriors,
     desc: "Kitchen, wardrobes, ceilings, lighting, painting and furniture — planned and delivered as one project.",
   },
   {
     title: "Modular Kitchen",
-    image: images.kitchen,
+    image: modularKitchen,
     desc: "Layout, core material, hardware and appliances specified for your cooking style and budget.",
   },
 ];

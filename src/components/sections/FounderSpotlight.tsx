@@ -2,7 +2,7 @@ import { Reveal } from "@/components/site/Reveal";
 import venkataSunilFullBody from "@/assets/founders/venkata-sunil-fullbody.webp";
 
 const stats = [
-  { value: "19+", label: "Projects" },
+  { value: "200+", label: "Projects" },
   { value: "24", label: "Services" },
   { value: "7-Step", label: "Process" },
   { value: "2D & 3D", label: "Visuals" },
@@ -44,7 +44,7 @@ export function FounderSpotlight() {
                 A civil engineer by training (Diploma &amp; B.Tech Civil) and a designer by
                 calling, Venkata Sunil founded MNS Interiors in Visakhapatnam on a simple belief —
                 a home should work as beautifully as it looks. He leads every project through the
-                studio's 7-step design-to-move-in process, delivering 19+ completed homes and
+                studio's 7-step design-to-move-in process, delivering 200+ completed homes and
                 commercial spaces across Visakhapatnam and North Andhra Pradesh, each one
                 visualised in 2D &amp; 3D before a single wall is touched.
               </p>

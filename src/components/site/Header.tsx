@@ -3,7 +3,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { brand } from "@/lib/site-data";
-import logoMark from "@/assets/mns-logo-mark.png";
+import logoFull from "@/assets/mns-logo-full.webp";
 import { useEstimate } from "./estimate-context";
 import { cn } from "@/lib/utils";
 import { useScrollLock } from "@/lib/use-scroll-lock";
@@ -44,21 +44,14 @@ export function Header() {
       )}
     >
       <div className="container-x grid h-16 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 sm:h-20 lg:flex lg:h-24 lg:justify-between lg:py-3">
-        <Link to="/" className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3">
+        <Link to="/" className="flex min-w-0 shrink-0 items-center" aria-label={`${brand.name} — home`}>
           <img
-            src={logoMark}
-            alt={`${brand.name} logo`}
-            className="h-9 w-auto shrink-0 object-contain sm:h-12 lg:h-16"
+            src={logoFull}
+            alt={`${brand.name} — ${brand.tagline}`}
+            width={1366}
+            height={256}
+            className="h-9 w-auto max-w-full shrink-0 object-contain max-[359px]:h-8 sm:h-11 lg:h-12 2xl:h-14"
           />
-
-          <span className="min-w-0 leading-tight">
-            <span className="block truncate font-display text-base whitespace-nowrap text-ink sm:text-xl lg:text-2xl 2xl:text-3xl">
-              {brand.name}
-            </span>
-            <span className="hidden text-[0.68rem] tracking-[0.24em] text-muted-foreground uppercase sm:block sm:text-xs lg:text-sm">
-              {brand.tagline}
-            </span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-4 xl:flex 2xl:gap-6">
@@ -127,9 +120,16 @@ export function Header() {
             <Button onClick={openEstimate} className="h-11 w-full rounded-full">
               Get Free Estimate
             </Button>
-            <a href={brand.phoneHref} className="block text-center text-sm text-muted-foreground">
-              Or call {brand.phone}
-            </a>
+            <p className="text-center text-sm text-muted-foreground">
+              Or call{" "}
+              <a href={brand.phoneHref} className="whitespace-nowrap text-ink hover:text-primary">
+                {brand.phone}
+              </a>{" "}
+              /{" "}
+              <a href={brand.phone2Href} className="whitespace-nowrap text-ink hover:text-primary">
+                {brand.phone2}
+              </a>
+            </p>
           </div>
         </div>
       </div>

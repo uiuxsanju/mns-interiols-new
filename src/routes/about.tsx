@@ -22,7 +22,7 @@ export const Route = createFileRoute("/about")({
 });
 
 const stats = [
-  { value: "19+", label: "Completed projects" },
+  { value: "200+", label: "Completed projects" },
   { value: "24", label: "Services offered" },
   { value: "7-Step", label: "Design-to-move-in process" },
   { value: "2D & 3D", label: "Visualisation before execution" },
