@@ -4,6 +4,7 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { galleryItems, galleryTabs } from "@/lib/site-data";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { cn } from "@/lib/utils";
+import { useScrollLock } from "@/lib/use-scroll-lock";
 
 export function Gallery({
   heading = true,
@@ -28,6 +29,8 @@ export function Gallery({
   );
   const hasMore = limit !== undefined && allItems.length > items.length;
 
+  useScrollLock(index !== null);
+
   useEffect(() => {
     if (index === null) return;
     const onKey = (e: KeyboardEvent) => {
@@ -36,11 +39,7 @@ export function Gallery({
       if (e.key === "ArrowLeft") setIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
     };
     window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, [index, items.length]);
 
   const active = index === null ? null : items[index];

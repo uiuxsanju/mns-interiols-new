@@ -36,12 +36,12 @@ function Index() {
   return (
     <>
       <Hero />
+      <StudioFilms />
       <Categories />
       <EstimateSection />
       <Process />
       <Solutions />
       <Gallery limit={12} />
-      <StudioFilms />
       <Services />
       {/* Lower homepage: Why Choose → Founders → Clients → Testimonials → Founder Spotlight → Final CTA */}
       <WhyUs />

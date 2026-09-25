@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { renderImages, renderRooms } from "@/lib/render-images";
 import { cn } from "@/lib/utils";
+import { useScrollLock } from "@/lib/use-scroll-lock";
 
 // Gallery of photoreal 3D design-concept renders, pulled from MNS Interiors'
 // own client presentation decks. Deliberately kept visually separate from
@@ -16,6 +17,8 @@ export function DesignConcepts() {
     [tab],
   );
 
+  useScrollLock(index !== null);
+
   useEffect(() => {
     if (index === null) return;
     const onKey = (e: KeyboardEvent) => {
@@ -24,11 +27,7 @@ export function DesignConcepts() {
       if (e.key === "ArrowLeft") setIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
     };
     window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, [index, items.length]);
 
   const active = index === null ? null : items[index];

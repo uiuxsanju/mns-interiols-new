@@ -6,6 +6,7 @@ import { brand } from "@/lib/site-data";
 import logoMark from "@/assets/mns-logo-mark.png";
 import { useEstimate } from "./estimate-context";
 import { cn } from "@/lib/utils";
+import { useScrollLock } from "@/lib/use-scroll-lock";
 
 const nav = [
   { label: "Design Gallery", to: "/gallery" },
@@ -33,12 +34,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
+  useScrollLock(menuOpen);
 
   return (
     <header

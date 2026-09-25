@@ -52,18 +52,38 @@ export function Footer() {
           </p>
           <div className="mt-6 flex gap-3">
             {[
-              { Icon: Instagram, href: "https://www.instagram.com/mnsinteriors/", label: "MNS Interiors on Instagram" },
-              { Icon: Facebook, href: "https://instagram.com", label: "Social profile" },
-              { Icon: Linkedin, href: "https://instagram.com", label: "Social profile" },
-              { Icon: Youtube, href: "https://instagram.com", label: "Social profile" },
-            ].map(({ Icon, href, label }, i) => (
+              {
+                Icon: Instagram,
+                href: "https://www.instagram.com/mnsinteriors/",
+                label: "MNS Interiors on Instagram",
+                bg: "bg-[radial-gradient(circle_at_30%_110%,#fdf497_0%,#fdf497_5%,#fd5949_45%,#d6249f_60%,#285AEB_90%)]",
+              },
+              {
+                Icon: Facebook,
+                href: "https://instagram.com",
+                label: "Social profile",
+                bg: "bg-[#1877F2]",
+              },
+              {
+                Icon: Linkedin,
+                href: "https://instagram.com",
+                label: "Social profile",
+                bg: "bg-[#0A66C2]",
+              },
+              {
+                Icon: Youtube,
+                href: "https://instagram.com",
+                label: "Social profile",
+                bg: "bg-[#FF0000]",
+              },
+            ].map(({ Icon, href, label, bg }, i) => (
               <a
                 key={i}
                 href={href}
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={label}
-                className="grid h-10 w-10 place-items-center rounded-full border border-border bg-card text-foreground/70 transition-colors hover:border-primary hover:text-primary"
+                className={`grid h-10 w-10 place-items-center rounded-full text-white shadow-[0_1px_2px_rgba(23,20,17,0.06),0_10px_20px_-12px_rgba(23,20,17,0.35)] transition-transform hover:-translate-y-0.5 hover:scale-105 ${bg}`}
               >
                 <Icon className="h-4 w-4" />
               </a>

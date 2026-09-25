@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useScrollLock } from "@/lib/use-scroll-lock";
 
 export function Lightbox({
   images,
@@ -16,6 +17,8 @@ export function Lightbox({
 }) {
   const touchStartX = useRef<number | null>(null);
 
+  useScrollLock(true);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -23,11 +26,7 @@ export function Lightbox({
       if (e.key === "ArrowLeft") onNavigate((index - 1 + images.length) % images.length);
     };
     window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, [index, images.length, onClose, onNavigate]);
 
   function onTouchStart(e: React.TouchEvent) {
