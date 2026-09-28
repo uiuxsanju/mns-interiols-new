@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,16 +10,21 @@ import { cn } from "@/lib/utils";
 // point `image` at another file inside /public.
 // `bakedTitle: true` = the photo already has "Interior Design" printed on it,
 // so the text overlay is hidden for that slide.
-const heroSlides = [
+const heroSlides: { image: string; alt: string; bakedTitle?: boolean }[] = [
   {
     image: "/images/hero-1.webp",
+    alt: "Living room with a backlit curved accent wall, terracotta and navy cushions",
+  },
+  { image: "/images/hero-2.webp", alt: "Living room with a green accent wall, sectional sofa and marble-look flooring" },
+  { image: "/images/hero-3.webp", alt: "Traditional Indian-style living and dining room with pendant lighting" },
+  { image: "/images/hero-4.webp", alt: "Living room with a marble TV wall, wooden coffee table and armchair" },
+  {
+    image: "/images/hero-5.webp",
     alt: "Interior Design — luxury dining room with pendant lighting and warm wood panelling",
     bakedTitle: true,
   },
-  { image: "/images/hero-2.webp", alt: "Living room with marble TV wall, cove lighting and L-shaped sofa" },
-  { image: "/images/hero-3.webp", alt: "Modular kitchen with marble island and pendant lights" },
-  { image: "/images/hero-4.webp", alt: "Foyer with hexagon wood panelling and geometric accent wall" },
-] satisfies { image: string; alt: string; bakedTitle?: boolean }[];
+  { image: "/images/hero-6.webp", alt: "Modular kitchen with marble island and pendant lights" },
+];
 
 const SLIDE_MS = 2000;
 
@@ -49,7 +54,6 @@ export function Hero() {
     return () => window.clearTimeout(t);
   }, [active, reducedMotion]);
 
-  const goTo = useCallback((i: number) => setActive(i), []);
   const showTitle = !heroSlides[active]?.bakedTitle;
 
   return (
@@ -92,6 +96,10 @@ export function Hero() {
           )}
         />
         <div aria-hidden className="hero-scrim absolute inset-0 hidden lg:block" />
+        {/* Screen-reader-only slide status; no visible on-image indicator. */}
+        <p aria-live="polite" className="sr-only">
+          Slide {active + 1} of {heroSlides.length}
+        </p>
 
         {/* "Interior Design" title for slides that don't have it printed on
             the photo. Decorative duplicate of the sr-only h1 below. */}
@@ -114,35 +122,6 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Slide indicators: bottom of the banner on mobile/tablet, bottom
-            right of the hero on desktop. */}
-        <div className="absolute right-3 bottom-3 z-10 flex gap-2 rounded-full bg-[#171411]/45 px-3 backdrop-blur-sm sm:right-6 sm:bottom-4 sm:px-4 lg:right-10 lg:bottom-10 xl:right-[max(2.5rem,calc((100vw-84rem)/2+2.5rem))]">
-          {heroSlides.map((s, i) => (
-            <button
-              key={s.image}
-              type="button"
-              onClick={() => goTo(i)}
-              aria-label={`Show slide ${i + 1} of ${heroSlides.length}`}
-              aria-current={i === active ? "true" : undefined}
-              className="group flex items-center gap-1.5 py-2 text-[0.62rem] font-medium tracking-[0.12em] text-white/60 transition-colors hover:text-white aria-[current=true]:text-white sm:gap-2 sm:text-[0.7rem]"
-            >
-              <span className="tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-              <span className="relative h-[2px] w-6 overflow-hidden rounded-full bg-white/25 sm:w-10 lg:w-12">
-                <span
-                  key={i === active ? `on-${active}` : "off"}
-                  className={cn(
-                    "absolute inset-y-0 left-0 rounded-full bg-[#E8A25B]",
-                    i === active
-                      ? reducedMotion
-                        ? "w-full"
-                        : "animate-[hero-progress_2000ms_linear_forwards]"
-                      : "w-0",
-                  )}
-                />
-              </span>
-            </button>
-          ))}
-        </div>
       </div>
 
       <div className="container-x relative flex flex-col justify-end py-8 sm:py-10 lg:min-h-[88svh] lg:pt-24 lg:pb-12 xl:pb-20">

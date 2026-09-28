@@ -12,9 +12,11 @@ import {
   Youtube,
   type LucideIcon,
 } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
 import { brand } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
+import { ThreadsIcon } from "@/components/site/ThreadsIcon";
 import logoFull from "@/assets/mns-logo-full.webp";
 
 type FooterLink = { label: string; to: string; hash?: string };
@@ -54,11 +56,17 @@ const cols: { title: string; links: FooterLink[] }[] = [
 ];
 
 // MNS Interiors' official profiles (tracking parameters stripped).
-const socials: { Icon: LucideIcon; href: string; label: string; color: string }[] = [
+const socials: {
+  Icon: LucideIcon | ComponentType<SVGProps<SVGSVGElement>>;
+  href: string;
+  label: string;
+  color: string;
+}[] = [
   { Icon: Instagram, href: "https://www.instagram.com/mnsinteriors/", label: "MNS Interiors on Instagram", color: "#D6249F" },
   { Icon: Facebook, href: "https://www.facebook.com/share/1cFAJ6NSvw/", label: "MNS Interiors on Facebook", color: "#1877F2" },
   { Icon: Linkedin, href: "https://www.linkedin.com/in/mns-interiors-09a520176", label: "MNS Interiors on LinkedIn", color: "#0A66C2" },
   { Icon: Youtube, href: "https://www.youtube.com/@mnsinteriors", label: "MNS Interiors on YouTube", color: "#FF0000" },
+  { Icon: ThreadsIcon, href: "https://www.threads.com/@mnsinteriors", label: "MNS Interiors on Threads", color: "#000000" },
 ];
 
 const TERRACOTTA = "#A95F35";
