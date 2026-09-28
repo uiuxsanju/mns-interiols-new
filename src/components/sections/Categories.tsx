@@ -4,19 +4,55 @@ import { Reveal } from "@/components/site/Reveal";
 
 const TERRACOTTA = "#A95F35";
 
-// Compact photo tiles on a warm marble backdrop, each image capped with a
-// label plate that overlaps its bottom edge (matches the client's reference).
+// Compact photo tiles on a marble backdrop with timber-slat columns at the
+// edges, each image capped with a label plate that overlaps its bottom edge
+// (matches the client's reference image).
 export function Categories() {
   return (
-    <section className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#FBF7F0_0%,#F6EEE0_100%)] py-14 sm:py-20 lg:py-24">
-      {/* Soft warm-wood glows, echoing the marble + timber reference. */}
+    <section className="relative isolate overflow-hidden bg-[#FBFAF7] py-14 sm:py-20 lg:py-24">
+      {/* Marble veining: layered faint diagonal streaks over an ivory base. */}
       <span
         aria-hidden
-        className="pointer-events-none absolute -top-24 -left-24 -z-10 h-72 w-72 rounded-full bg-[#C79A63]/20 blur-3xl sm:h-96 sm:w-96"
+        className="pointer-events-none absolute inset-0 -z-20 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(115deg, transparent 0px, transparent 90px, rgba(180,165,140,0.5) 91px, transparent 94px, transparent 240px), repeating-linear-gradient(25deg, transparent 0px, transparent 140px, rgba(180,165,140,0.35) 141px, transparent 145px, transparent 320px)",
+        }}
+      />
+      {/* Timber-slat columns, echoing the wood pillars in the reference. */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-y-0 left-0 -z-10 hidden w-16 lg:block"
+        style={{
+          backgroundImage: "repeating-linear-gradient(90deg, #8A6339 0px, #6E4C2A 10px, #8A6339 20px)",
+          opacity: 0.22,
+        }}
       />
       <span
         aria-hidden
-        className="pointer-events-none absolute -right-24 -bottom-24 -z-10 h-72 w-72 rounded-full bg-[#C79A63]/20 blur-3xl sm:h-96 sm:w-96"
+        className="pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-16 lg:block"
+        style={{
+          backgroundImage: "repeating-linear-gradient(90deg, #8A6339 0px, #6E4C2A 10px, #8A6339 20px)",
+          opacity: 0.22,
+        }}
+      />
+      {/* Soft warm-wood glows, echoing the marble + timber reference. */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -top-24 -left-24 -z-10 h-72 w-72 rounded-full bg-[#C79A63]/15 blur-3xl sm:h-96 sm:w-96"
+      />
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -right-24 -bottom-24 -z-10 h-72 w-72 rounded-full bg-[#C79A63]/15 blur-3xl sm:h-96 sm:w-96"
+      />
+      {/* Soft greenery glows in the far corners, like the plants in the reference. */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute top-1/3 -left-16 -z-10 hidden h-64 w-40 rounded-[45%_55%_60%_40%] bg-[#7E9460]/20 blur-3xl lg:block"
+      />
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -right-16 bottom-1/4 -z-10 hidden h-64 w-40 rounded-[55%_45%_40%_60%] bg-[#7E9460]/20 blur-3xl lg:block"
       />
 
       <div className="container-x">
