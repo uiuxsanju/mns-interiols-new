@@ -3,7 +3,6 @@ import { Link } from "@tanstack/react-router";
 import { ChevronRight, Plus } from "lucide-react";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { services } from "@/lib/services-data";
-import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 /** Services shown before the "Show all" button on small screens. Every service
  *  is still reachable — the button reveals the rest in place. */
@@ -16,7 +15,6 @@ export function Services() {
 
   return (
     <section id="services" className="relative isolate overflow-hidden section-y">
-      <InteriorBackdrop />
       <div className="container-x">
         <SectionHeading
           eyebrow="Our Services"

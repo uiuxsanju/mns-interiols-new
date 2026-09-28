@@ -25,7 +25,7 @@ export function ServiceDetailPage({ service }: { service: ServiceItem }) {
         </div>
         <div className="container-x absolute inset-x-0 bottom-0 pb-8">
           <nav className="mb-3 flex items-center gap-1.5 text-xs text-background/80">
-            <Link to="/" hash="services" className="hover:text-background">
+            <Link to="/" hash="services" className="inline-flex min-h-8 items-center hover:text-background">
               Services
             </Link>
             <ChevronRight className="h-3 w-3" />
@@ -146,7 +146,7 @@ export function ServiceDetailPage({ service }: { service: ServiceItem }) {
         <Link
           to="/"
           hash="services"
-          className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+          className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary hover:underline"
         >
           <ArrowLeft className="h-4 w-4" /> Back to Services
         </Link>

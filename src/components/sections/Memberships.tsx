@@ -2,7 +2,6 @@ import { Reveal } from "@/components/site/Reveal";
 import bniLogo from "@/assets/memberships/bni.png";
 import jciLogo from "@/assets/memberships/jci.png";
 import mmnLogo from "@/assets/memberships/mmn.png";
-import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 // Real affiliations of MNS Interiors.
 const memberships = [
@@ -38,7 +37,6 @@ export function Memberships() {
       id="memberships"
       className="relative isolate overflow-hidden section-lower bg-[#FBF9F5]"
     >
-      <InteriorBackdrop flip />
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <div className="flex items-center justify-center gap-5">

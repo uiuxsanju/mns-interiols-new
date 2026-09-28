@@ -4,7 +4,6 @@ import { testimonials } from "@/lib/site-data";
 import { LowerHeading } from "@/components/site/LowerHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { cn } from "@/lib/utils";
-import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 const initials = (name: string) =>
   name
@@ -126,7 +125,6 @@ export function Testimonials() {
       id="testimonials"
       className="relative isolate overflow-hidden section-lower border-t border-[#E5DED4] bg-white"
     >
-      <InteriorBackdrop flip />
       <div className="container-x">
         <LowerHeading
           eyebrow="What Our Clients Say"

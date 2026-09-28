@@ -3,7 +3,6 @@ import { LowerHeading } from "@/components/site/LowerHeading";
 import { Reveal } from "@/components/site/Reveal";
 import venkataSunilPhoto from "@/assets/founders/venkata-sunil.webp";
 import manoharPhoto from "@/assets/founders/manohar.webp";
-import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 // Only authentic founder information already in the project.
 const founders = [
@@ -31,7 +30,6 @@ export function Founders() {
       id="founders"
       className="relative isolate overflow-hidden section-lower border-t border-[#E5DED4] bg-white"
     >
-      <InteriorBackdrop flip />
       <div className="container-x">
         <LowerHeading
           eyebrow="Meet the Founders"

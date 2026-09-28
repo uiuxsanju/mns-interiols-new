@@ -44,10 +44,10 @@ function ContactPage() {
                 </span>
                 <span>
                   <span className="block text-xs tracking-[0.2em] text-muted-foreground uppercase">Phone</span>
-                  <a href={brand.phoneHref} className="block text-lg whitespace-nowrap text-ink hover:text-primary">
+                  <a href={brand.phoneHref} className="block py-1 text-lg whitespace-nowrap text-ink hover:text-primary">
                     {brand.phone}
                   </a>
-                  <a href={brand.phone2Href} className="block text-lg whitespace-nowrap text-ink hover:text-primary">
+                  <a href={brand.phone2Href} className="block py-1 text-lg whitespace-nowrap text-ink hover:text-primary">
                     {brand.phone2}
                   </a>
                 </span>
@@ -115,7 +115,7 @@ function ContactPage() {
           href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}`}
           target="_blank"
           rel="noreferrer noopener"
-          className="mt-4 inline-flex text-sm font-medium text-primary hover:underline"
+          className="mt-2 inline-flex min-h-11 items-center text-sm font-medium text-primary hover:underline"
         >
           Open in Google Maps →
         </a>

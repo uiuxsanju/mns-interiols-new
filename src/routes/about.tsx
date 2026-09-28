@@ -3,6 +3,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { CtaBanner } from "@/components/sections/CtaBanner";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { FounderSpotlight } from "@/components/sections/FounderSpotlight";
 import { images } from "@/lib/site-data";
 
 const title = "About MNS Interiors — Interior Designers in Visakhapatnam";
@@ -80,6 +81,7 @@ function AboutPage() {
         </div>
       </section>
 
+      <FounderSpotlight />
       <WhyUs />
       <CtaBanner />
     </>

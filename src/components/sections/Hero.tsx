@@ -44,6 +44,17 @@ export function Hero() {
   const { openEstimate } = useEstimate();
   const [active, setActive] = useState(0);
   const reducedMotion = usePrefersReducedMotion();
+  // Only the first slide loads with the page. Each later slide is fetched one
+  // step ahead of when it is shown, so phones don't download all six photos
+  // up front.
+  const [loaded, setLoaded] = useState(() => new Set([0, 1]));
+  useEffect(() => {
+    setLoaded((prev) => {
+      const next = (active + 1) % heroSlides.length;
+      if (prev.has(active) && prev.has(next)) return prev;
+      return new Set([...prev, active, next]);
+    });
+  }, [active]);
 
   // Advance every 2s. Keyed on `active`, so picking a slide restarts the
   // 2s timer; the timeout is cleared on every change and on unmount.
@@ -69,7 +80,7 @@ export function Hero() {
         {heroSlides.map((s, i) => (
           <img
             key={s.image}
-            src={s.image}
+            {...(loaded.has(i) ? { src: s.image } : {})}
             alt={s.alt}
             aria-hidden={i !== active}
             width={1672}

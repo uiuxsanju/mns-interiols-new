@@ -3,12 +3,10 @@ import { Hero } from "@/components/sections/Hero";
 import { Categories } from "@/components/sections/Categories";
 import { EstimateSection } from "@/components/sections/EstimateSection";
 import { Process } from "@/components/sections/Process";
-import { Solutions } from "@/components/sections/Solutions";
 import { WhyUs } from "@/components/sections/WhyUs";
 import { Gallery } from "@/components/sections/Gallery";
 import { StudioFilms } from "@/components/sections/StudioFilms";
 import { Founders } from "@/components/sections/Founders";
-import { FounderSpotlight } from "@/components/sections/FounderSpotlight";
 import { Clients } from "@/components/sections/Clients";
 import { Services } from "@/components/sections/Services";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -35,20 +33,21 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
+      {/* Order alternates light and dark/photo sections so no two heavy
+          backgrounds sit next to each other. Repeated content was removed:
+          the 14-tile Solutions grid (same as Categories + Services) and the
+          Founder Spotlight (moved to /about; Founders already covers it). */}
       <Hero />
-      <StudioFilms />
-      <Categories />
       <EstimateSection />
-      <Process />
-      <Solutions />
+      <Categories />
       <Gallery limit={12} />
+      <Process />
       <Services />
-      {/* Lower homepage: Why Choose → Founders → Clients → Testimonials → Founder Spotlight → Final CTA */}
+      <StudioFilms />
       <WhyUs />
-      <Founders />
       <Clients />
       <Testimonials />
-      <FounderSpotlight />
+      <Founders />
       <CtaBanner />
       <Memberships />
       <Faq />
