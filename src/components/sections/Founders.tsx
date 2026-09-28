@@ -3,6 +3,7 @@ import { LowerHeading } from "@/components/site/LowerHeading";
 import { Reveal } from "@/components/site/Reveal";
 import venkataSunilPhoto from "@/assets/founders/venkata-sunil.webp";
 import manoharPhoto from "@/assets/founders/manohar.webp";
+import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 // Only authentic founder information already in the project.
 const founders = [
@@ -26,7 +27,11 @@ const founders = [
 
 export function Founders() {
   return (
-    <section id="founders" className="section-lower border-t border-[#E5DED4] bg-white">
+    <section
+      id="founders"
+      className="relative isolate overflow-hidden section-lower border-t border-[#E5DED4] bg-white"
+    >
+      <InteriorBackdrop flip />
       <div className="container-x">
         <LowerHeading
           eyebrow="Meet the Founders"
@@ -73,8 +78,13 @@ export function Founders() {
                       <GraduationCap className="h-4 w-4 shrink-0 text-[#B95827]" aria-hidden />
                       {f.qualification}
                     </p>
-                    <span aria-hidden className="mx-auto mt-5 block h-px w-12 bg-[#D9A15B]/60 sm:mx-0" />
-                    <p className="mt-5 max-w-md text-[0.98rem] leading-relaxed text-[#6B625A]">{f.desc}</p>
+                    <span
+                      aria-hidden
+                      className="mx-auto mt-5 block h-px w-12 bg-[#D9A15B]/60 sm:mx-0"
+                    />
+                    <p className="mt-5 max-w-md text-[0.98rem] leading-relaxed text-[#6B625A]">
+                      {f.desc}
+                    </p>
                   </div>
                 </div>
               </Reveal>

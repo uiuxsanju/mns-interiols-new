@@ -4,6 +4,7 @@ import { testimonials } from "@/lib/site-data";
 import { LowerHeading } from "@/components/site/LowerHeading";
 import { Reveal } from "@/components/site/Reveal";
 import { cn } from "@/lib/utils";
+import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 const initials = (name: string) =>
   name
@@ -27,12 +28,16 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
         aria-hidden
         className="pointer-events-none absolute right-0 bottom-0 h-28 w-40"
         style={{
-          background: "radial-gradient(140px 100px at 100% 100%, rgba(185,88,39,0.08), transparent 70%)",
+          background:
+            "radial-gradient(140px 100px at 100% 100%, rgba(185,88,39,0.08), transparent 70%)",
         }}
       />
 
       <div className="relative z-[1] flex items-start justify-between gap-3">
-        <span aria-hidden className="font-editorial block h-10 text-[3.5rem] leading-none text-[#D9A15B]">
+        <span
+          aria-hidden
+          className="font-editorial block h-10 text-[3.5rem] leading-none text-[#D9A15B]"
+        >
           &ldquo;
         </span>
         <span className="mt-1.5 shrink-0 rounded-full border border-[#E5DED4] bg-white px-3 py-1 text-[0.66rem] font-semibold tracking-[0.08em] text-[#B95827] uppercase">
@@ -40,7 +45,10 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
         </span>
       </div>
       {"rating" in t && t.rating && (
-        <div className="relative z-[1] -mt-1 flex gap-0.5" aria-label={`${t.rating} out of 5 stars`}>
+        <div
+          className="relative z-[1] -mt-1 flex gap-0.5"
+          aria-label={`${t.rating} out of 5 stars`}
+        >
           {Array.from({ length: t.rating }).map((_, i) => (
             <Star key={i} className="h-3.5 w-3.5 fill-[#D9A15B] text-[#D9A15B]" />
           ))}
@@ -55,7 +63,9 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
         </span>
         <div className="min-w-0">
           <p className="font-editorial text-lg leading-tight text-[#171411]">{t.name}</p>
-          <p className="mt-1 text-[0.8rem] font-medium tracking-[0.02em] text-[#8A8177]">{t.city}</p>
+          <p className="mt-1 text-[0.8rem] font-medium tracking-[0.02em] text-[#8A8177]">
+            {t.city}
+          </p>
         </div>
       </figcaption>
     </figure>
@@ -112,7 +122,11 @@ export function Testimonials() {
     "grid h-11 w-11 place-items-center rounded-full border border-[#E5DED4] bg-white text-[#171411] transition-colors duration-300 hover:border-[#171411] disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-[#E5DED4]";
 
   return (
-    <section id="testimonials" className="section-lower border-t border-[#E5DED4] bg-white">
+    <section
+      id="testimonials"
+      className="relative isolate overflow-hidden section-lower border-t border-[#E5DED4] bg-white"
+    >
+      <InteriorBackdrop flip />
       <div className="container-x">
         <LowerHeading
           eyebrow="What Our Clients Say"

@@ -25,12 +25,21 @@ export function StudioFilms() {
   useScrollLock(active !== null);
 
   return (
-    <section className="section-lower relative overflow-hidden bg-[#171411] text-[#F2ECE2]">
-      {/* faint corner glow for depth, matching the site's editorial-dark accents */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full bg-[#D9A15B]/10 blur-3xl"
-      />
+    <section className="section-lower relative isolate overflow-hidden bg-[linear-gradient(180deg,#1C1511_0%,#15100C_100%)] text-[#F2ECE2]">
+      {/* Backlit arched wall-panel photo, darkened so the heading and films read. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <img
+          src="/images/wall-panel-bg.webp"
+          alt=""
+          loading="lazy"
+          width={1448}
+          height={1086}
+          className="h-full w-full object-cover object-[50%_45%]"
+        />
+        <span className="absolute inset-0 bg-[linear-gradient(90deg,rgba(21,16,12,0.85)_0%,rgba(21,16,12,0.55)_45%,rgba(21,16,12,0.3)_100%)]" />
+        <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(21,16,12,0.1)_0%,rgba(21,16,12,0.4)_50%,rgba(21,16,12,0.9)_100%)]" />
+        <span className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#D9A15B]/40 to-transparent" />
+      </div>
       <div className="container-x relative">
         <div className="flex flex-wrap items-end justify-between gap-5">
           <div className="max-w-xl">

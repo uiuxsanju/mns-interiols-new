@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/site/Reveal";
 import venkataSunilFullBody from "@/assets/founders/venkata-sunil-fullbody.webp";
+import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 const stats = [
   { value: "200+", label: "Projects" },
@@ -10,7 +11,11 @@ const stats = [
 
 export function FounderSpotlight() {
   return (
-    <section id="founder-spotlight" className="section-lower border-t border-[#E5DED4] bg-white">
+    <section
+      id="founder-spotlight"
+      className="relative isolate overflow-hidden section-lower border-t border-[#E5DED4] bg-white"
+    >
+      <InteriorBackdrop />
       <div className="container-x">
         <Reveal as="div">
           <div className="relative mx-auto grid max-w-4xl overflow-hidden rounded-[20px] border border-[#E5DED4] bg-[#FBF6ED] shadow-[0_1px_2px_rgba(23,20,17,0.04),0_20px_44px_-28px_rgba(23,20,17,0.24)] sm:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
@@ -41,12 +46,12 @@ export function FounderSpotlight() {
               <span aria-hidden className="mt-4 block h-px w-12 bg-[#D9A15B]/60" />
 
               <p className="mt-4 text-[0.95rem] leading-relaxed text-[#6B625A]">
-                A civil engineer by training (Diploma &amp; B.Tech Civil) and a designer by
-                calling, Venkata Sunil founded MNS Interiors in Visakhapatnam on a simple belief —
-                a home should work as beautifully as it looks. He leads every project through the
-                studio's 7-step design-to-move-in process, delivering 200+ completed homes and
-                commercial spaces across Visakhapatnam and North Andhra Pradesh, each one
-                visualised in 2D &amp; 3D before a single wall is touched.
+                A civil engineer by training (Diploma &amp; B.Tech Civil) and a designer by calling,
+                Venkata Sunil founded MNS Interiors in Visakhapatnam on a simple belief — a home
+                should work as beautifully as it looks. He leads every project through the studio's
+                7-step design-to-move-in process, delivering 200+ completed homes and commercial
+                spaces across Visakhapatnam and North Andhra Pradesh, each one visualised in 2D
+                &amp; 3D before a single wall is touched.
               </p>
 
               <div className="mt-6 grid grid-cols-2 gap-3 border-t border-[#E5DED4] pt-5 min-[420px]:grid-cols-4">

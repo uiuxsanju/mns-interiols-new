@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { images } from "@/lib/site-data";
 import { useEstimate } from "@/components/site/estimate-context";
 
 export function CtaBanner() {
@@ -7,14 +6,16 @@ export function CtaBanner() {
   return (
     <section className="relative isolate overflow-hidden">
       <img
-        src={images.bedroom}
-        alt="Softly lit bedroom interior"
+        src="/images/hero-3.webp"
+        alt="Warm living and dining interior with pendant lighting"
         loading="lazy"
         width={1200}
         height={900}
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-ink/78" />
+      {/* Warm brown scrim (not flat grey) so the photo's lighting still reads. */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(28,19,13,0.62)_0%,rgba(28,19,13,0.74)_55%,rgba(28,19,13,0.86)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(28,19,13,0.35)_0%,rgba(28,19,13,0)_65%)]" />
       <div className="container-x relative py-20 text-center lg:py-28">
         <h2 className="mx-auto max-w-3xl text-3xl leading-tight text-background sm:text-5xl">
           Let's Design a Home You'll Love

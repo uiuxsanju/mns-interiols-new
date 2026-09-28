@@ -6,6 +6,7 @@ import villaExteriorEvening from "@/assets/portfolio/villa-exterior-modern-eveni
 import apartmentBuildingExterior from "@/assets/portfolio/apartment-building-exterior-modern.webp";
 import cafeInteriorBlueArch from "@/assets/portfolio/cafe-interior-blue-arch-tile.webp";
 import officeLoungeCorporate from "@/assets/portfolio/office-lounge-corporate-modern.webp";
+import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 // The client / project names below are real, from the MNS Interiors portfolio.
 // The card photos are representative category images (not photos of these
@@ -63,7 +64,11 @@ const enquiry = (category: string) =>
 
 export function Clients() {
   return (
-    <section id="clients" className="section-lower border-t border-[#E5DED4] bg-[#F7F3EC]">
+    <section
+      id="clients"
+      className="relative isolate overflow-hidden section-lower border-t border-[#E5DED4] bg-[#F7F3EC]"
+    >
+      <InteriorBackdrop />
       <div id="portfolio" className="container-x scroll-mt-24">
         <LowerHeading
           eyebrow="Our Clients"
@@ -120,7 +125,10 @@ export function Clients() {
                     >
                       <MessageCircle className="h-4 w-4" />
                       Enquire on WhatsApp
-                      <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
+                      <span
+                        aria-hidden
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                      >
                         →
                       </span>
                     </a>

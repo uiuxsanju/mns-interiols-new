@@ -2,6 +2,7 @@ import { Reveal } from "@/components/site/Reveal";
 import bniLogo from "@/assets/memberships/bni.png";
 import jciLogo from "@/assets/memberships/jci.png";
 import mmnLogo from "@/assets/memberships/mmn.png";
+import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 // Real affiliations of MNS Interiors.
 const memberships = [
@@ -33,7 +34,11 @@ const memberships = [
 
 export function Memberships() {
   return (
-    <section id="memberships" className="section-lower bg-[#FBF9F5]">
+    <section
+      id="memberships"
+      className="relative isolate overflow-hidden section-lower bg-[#FBF9F5]"
+    >
+      <InteriorBackdrop flip />
       <div className="container-x">
         <div className="mx-auto max-w-3xl text-center">
           <div className="flex items-center justify-center gap-5">
@@ -69,14 +74,23 @@ export function Memberships() {
                 />
 
                 <div className="relative z-[1] ml-auto flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-white shadow-[0_1px_2px_rgba(23,20,17,0.06),0_10px_20px_-14px_rgba(23,20,17,0.25)] sm:ml-0 sm:h-28 sm:w-28">
-                  <img src={m.logo} alt={m.alt} loading="lazy" className="h-12 w-auto max-w-[70%] object-contain sm:h-16" />
+                  <img
+                    src={m.logo}
+                    alt={m.alt}
+                    loading="lazy"
+                    className="h-12 w-auto max-w-[70%] object-contain sm:h-16"
+                  />
                 </div>
 
                 <div className="relative z-[1] min-w-0 flex-1 sm:border-l sm:border-[#EFE9DF] sm:pt-1 sm:pl-5">
                   <p className="text-[0.66rem] font-medium tracking-[0.22em] text-[#8A8177] uppercase sm:text-[0.68rem]">
                     Member of
                   </p>
-                  <span aria-hidden className="mt-1.5 block h-[3px] w-8 rounded-full" style={{ background: m.accent }} />
+                  <span
+                    aria-hidden
+                    className="mt-1.5 block h-[3px] w-8 rounded-full"
+                    style={{ background: m.accent }}
+                  />
                   <h3 className="font-editorial mt-2 text-[1.05rem] leading-snug text-balance text-[#171411] sm:text-xl">
                     {m.name}
                   </h3>

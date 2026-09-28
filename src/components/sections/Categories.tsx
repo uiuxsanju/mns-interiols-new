@@ -2,65 +2,30 @@ import { Link } from "@tanstack/react-router";
 import { categories } from "@/lib/site-data";
 import { Reveal } from "@/components/site/Reveal";
 
-const TERRACOTTA = "#A95F35";
+const ACCENT = "#E8A25B";
 
-// Compact photo tiles on a marble backdrop with timber-slat columns at the
-// edges, each image capped with a label plate that overlaps its bottom edge
-// (matches the client's reference image).
+// Compact photo tiles on a fluted-wood wall (client's texture), each image
+// capped with a label plate that overlaps its bottom edge.
 export function Categories() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#FBFAF7] py-14 sm:py-20 lg:py-24">
-      {/* Marble veining: layered faint diagonal streaks over an ivory base. */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-20 opacity-[0.35]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(115deg, transparent 0px, transparent 90px, rgba(180,165,140,0.5) 91px, transparent 94px, transparent 240px), repeating-linear-gradient(25deg, transparent 0px, transparent 140px, rgba(180,165,140,0.35) 141px, transparent 145px, transparent 320px)",
-        }}
-      />
-      {/* Timber-slat columns, echoing the wood pillars in the reference. */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 left-0 -z-10 hidden w-16 lg:block"
-        style={{
-          backgroundImage: "repeating-linear-gradient(90deg, #8A6339 0px, #6E4C2A 10px, #8A6339 20px)",
-          opacity: 0.22,
-        }}
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-16 lg:block"
-        style={{
-          backgroundImage: "repeating-linear-gradient(90deg, #8A6339 0px, #6E4C2A 10px, #8A6339 20px)",
-          opacity: 0.22,
-        }}
-      />
-      {/* Soft warm-wood glows, echoing the marble + timber reference. */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -top-24 -left-24 -z-10 h-72 w-72 rounded-full bg-[#C79A63]/15 blur-3xl sm:h-96 sm:w-96"
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -right-24 -bottom-24 -z-10 h-72 w-72 rounded-full bg-[#C79A63]/15 blur-3xl sm:h-96 sm:w-96"
-      />
-      {/* Soft greenery glows in the far corners, like the plants in the reference. */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute top-1/3 -left-16 -z-10 hidden h-64 w-40 rounded-[45%_55%_60%_40%] bg-[#7E9460]/20 blur-3xl lg:block"
-      />
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -right-16 bottom-1/4 -z-10 hidden h-64 w-40 rounded-[55%_45%_40%_60%] bg-[#7E9460]/20 blur-3xl lg:block"
-      />
+    <section className="relative isolate overflow-hidden bg-[#2A1C12] py-14 sm:py-20 lg:py-24">
+      {/* Fluted wood-slat wall, darkened toward the middle so text and cards pop. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div
+          className="absolute inset-0 bg-[length:560px_auto] bg-repeat sm:bg-[length:900px_auto]"
+          style={{ backgroundImage: "url(/images/wood-slat-bg.webp)" }}
+        />
+        <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,17,11,0.78)_0%,rgba(26,17,11,0.55)_40%,rgba(26,17,11,0.7)_100%)]" />
+        <span className="absolute inset-x-0 top-0 h-48 bg-[radial-gradient(ellipse_at_top,rgba(240,194,123,0.28)_0%,rgba(240,194,123,0)_70%)]" />
+        <span className="absolute inset-x-[10%] top-0 h-px bg-gradient-to-r from-transparent via-[#F0C27B]/80 to-transparent" />
+      </div>
 
       <div className="container-x">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-editorial text-[2.1rem] leading-[1.1] text-balance text-[#20201E] max-[375px]:text-[1.8rem] sm:text-[2.75rem] lg:text-[3.25rem]">
-            Our <span style={{ color: TERRACOTTA }}>Interior</span> Solutions
+          <h2 className="font-editorial text-[2.1rem] leading-[1.1] text-balance text-[#F5EDE0] max-[375px]:text-[1.8rem] sm:text-[2.75rem] lg:text-[3.25rem]">
+            Our <span style={{ color: ACCENT }}>Interior</span> Solutions
           </h2>
-          <p className="mt-4 flex items-center justify-center gap-3 text-[0.68rem] font-semibold tracking-[0.26em] text-[#8A7F6E] uppercase sm:text-[0.75rem]">
+          <p className="mt-4 flex items-center justify-center gap-3 text-[0.68rem] font-semibold tracking-[0.26em] text-[#E6D5BC] uppercase sm:text-[0.75rem]">
             <span aria-hidden className="h-px w-8 bg-current opacity-50 sm:w-12" />
             Modern designs for better spaces
             <span aria-hidden className="h-px w-8 bg-current opacity-50 sm:w-12" />

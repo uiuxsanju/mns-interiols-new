@@ -3,6 +3,7 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { useEstimate } from "@/components/site/estimate-context";
 import fullHomeInteriors from "@/assets/portfolio/living-room-green-wall-tv-unit.webp";
 import modularKitchen from "@/assets/portfolio/kitchen-marble-island-pendant-lights.webp";
+import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 const cards = [
   {
@@ -20,7 +21,8 @@ const cards = [
 export function EstimateSection() {
   const { openEstimate } = useEstimate();
   return (
-    <section id="estimate" className="bg-sand section-y">
+    <section id="estimate" className="relative isolate overflow-hidden bg-sand section-y">
+      <InteriorBackdrop />
       <div className="container-x">
         <SectionHeading
           eyebrow="Transparent pricing"
@@ -34,7 +36,14 @@ export function EstimateSection() {
               key={c.title}
               className="card-media group overflow-hidden rounded-2xl bg-card shadow-card transition-shadow hover:shadow-lift"
             >
-              <img src={c.image} alt={c.title} loading="lazy" width={1200} height={900} className="h-60 w-full object-cover sm:h-72" />
+              <img
+                src={c.image}
+                alt={c.title}
+                loading="lazy"
+                width={1200}
+                height={900}
+                className="h-60 w-full object-cover sm:h-72"
+              />
               <div className="p-7">
                 <h3 className="text-2xl">{c.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
