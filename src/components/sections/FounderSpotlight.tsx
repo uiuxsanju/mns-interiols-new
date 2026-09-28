@@ -34,7 +34,7 @@ export function FounderSpotlight() {
             </div>
 
             <div className="relative z-[1] flex flex-col justify-center p-6 sm:p-8 lg:p-10">
-              <p className="text-[0.68rem] font-semibold tracking-[0.22em] text-[#B95827] uppercase">
+              <p className="text-[0.72rem] font-semibold tracking-[0.2em] text-[#B95827] uppercase">
                 Founder Spotlight
               </p>
               <h3 className="font-editorial mt-2 text-[1.6rem] leading-tight text-[#171411] sm:text-[1.9rem]">
@@ -58,7 +58,7 @@ export function FounderSpotlight() {
                 {stats.map((s) => (
                   <div key={s.label}>
                     <p className="font-editorial text-lg text-[#171411] sm:text-xl">{s.value}</p>
-                    <p className="mt-0.5 text-[0.66rem] leading-snug text-[#8A8177]">{s.label}</p>
+                    <p className="mt-0.5 text-[0.72rem] leading-snug text-[#8A8177]">{s.label}</p>
                   </div>
                 ))}
               </div>

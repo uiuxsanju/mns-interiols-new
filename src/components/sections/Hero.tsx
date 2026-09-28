@@ -164,7 +164,7 @@ export function Hero() {
             ].map((s) => (
               <div key={s.label} className="flex-1 pr-3 first:pl-0 sm:flex-none sm:px-6 sm:first:pl-0">
                 <p className="font-display text-xl text-background sm:text-2xl">{s.value}</p>
-                <p className="mt-0.5 text-[0.68rem] leading-snug text-background/70 sm:text-[0.75rem]">{s.label}</p>
+                <p className="mt-0.5 text-[0.75rem] leading-snug text-background/75 sm:text-[0.8rem]">{s.label}</p>
               </div>
             ))}
           </div>

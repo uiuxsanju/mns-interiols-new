@@ -40,7 +40,7 @@ function TestimonialCard({ t }: { t: (typeof testimonials)[number] }) {
         >
           &ldquo;
         </span>
-        <span className="mt-1.5 shrink-0 rounded-full border border-[#E5DED4] bg-white px-3 py-1 text-[0.66rem] font-semibold tracking-[0.08em] text-[#B95827] uppercase">
+        <span className="mt-1.5 shrink-0 rounded-full border border-[#E5DED4] bg-white px-3 py-1 text-[0.7rem] font-semibold tracking-[0.08em] text-[#B95827] uppercase">
           {t.project}
         </span>
       </div>
@@ -176,18 +176,25 @@ export function Testimonials() {
                 ))}
               </div>
             </Reveal>
-            <div className="mt-5 flex justify-center gap-1.5">
+            <div className="mt-3 flex justify-center">
               {testimonials.map((t, i) => (
+                // 32px touch area around a small visual dot
                 <button
                   key={t.name}
                   type="button"
                   aria-label={`Go to testimonial ${i + 1}`}
+                  aria-current={i === active ? "true" : undefined}
                   onClick={() => scrollToIndex(i)}
-                  className={cn(
-                    "h-1.5 rounded-full transition-all duration-300",
-                    i === active ? "w-6 bg-[#B95827]" : "w-1.5 bg-[#E5DED4]",
-                  )}
-                />
+                  className="grid h-8 min-w-8 place-items-center px-1"
+                >
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "block h-2 rounded-full transition-all duration-300",
+                      i === active ? "w-6 bg-[#B95827]" : "w-2 bg-[#D9CFC2]",
+                    )}
+                  />
+                </button>
               ))}
             </div>
           </>

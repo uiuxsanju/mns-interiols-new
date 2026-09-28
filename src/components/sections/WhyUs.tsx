@@ -144,7 +144,7 @@ export function WhyUs() {
           </p>
         </Reveal>
 
-        <div className="mt-9 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 xl:grid-cols-4 xl:gap-5">
+        <div className="mt-9 grid max-sm:-mx-4 max-sm:flex max-sm:snap-x max-sm:snap-mandatory max-sm:gap-3.5 max-sm:overflow-x-auto max-sm:scroll-px-4 max-sm:px-4 max-sm:pb-2 max-sm:[scrollbar-width:none] max-sm:*:min-w-0 max-sm:*:shrink-0 max-sm:*:basis-[82%] max-sm:*:snap-start grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 xl:grid-cols-4 xl:gap-5">
           {features.map((f, i) => (
             <Reveal key={f.title} as="article" delay={i * 70} className="h-full">
               <FeatureCard f={f} index={i} />

@@ -12,7 +12,7 @@ export function Solutions() {
           title="Fourteen services under one contract"
           desc="From carcass to cushions. You never coordinate between vendors — we do it, and we own the timeline."
         />
-        <div className="section-gap grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
+        <div className="section-gap grid max-sm:-mx-4 max-sm:flex max-sm:snap-x max-sm:snap-mandatory max-sm:gap-3.5 max-sm:overflow-x-auto max-sm:scroll-px-4 max-sm:px-4 max-sm:pb-2 max-sm:[scrollbar-width:none] max-sm:*:min-w-0 max-sm:*:shrink-0 max-sm:*:basis-[44%] max-sm:*:snap-start grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
           {solutions.map((s) => (
             <figure
               key={s.title}

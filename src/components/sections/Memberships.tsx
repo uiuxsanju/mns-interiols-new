@@ -83,7 +83,7 @@ export function Memberships() {
                 </div>
 
                 <div className="relative z-[1] min-w-0 flex-1 sm:border-l sm:border-[#EFE9DF] sm:pt-1 sm:pl-5">
-                  <p className="text-[0.66rem] font-medium tracking-[0.22em] text-[#8A8177] uppercase sm:text-[0.68rem]">
+                  <p className="text-[0.7rem] font-medium tracking-[0.2em] text-[#8A8177] uppercase sm:text-[0.68rem]">
                     Member of
                   </p>
                   <span

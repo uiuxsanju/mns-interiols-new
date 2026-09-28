@@ -5,7 +5,6 @@ import { galleryItems, galleryTabs } from "@/lib/site-data";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { cn } from "@/lib/utils";
 import { useScrollLock } from "@/lib/use-scroll-lock";
-import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 export function Gallery({
   heading = true,
@@ -44,8 +43,16 @@ export function Gallery({
   const active = index === null ? null : items[index];
 
   return (
-    <section id="gallery" className="relative isolate overflow-hidden section-y">
-      <InteriorBackdrop flip />
+    <section id="gallery" className="relative isolate overflow-hidden bg-[#E4DDD5] section-y">
+      {/* Light fluted wall-panel texture (client's image) with a soft cove-light wash. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div
+          className="absolute inset-0 bg-[length:720px_auto] bg-repeat sm:bg-[length:1100px_auto]"
+          style={{ backgroundImage: "url(/images/panel-light-bg.webp)" }}
+        />
+        <span className="absolute inset-x-0 top-0 h-64 bg-[radial-gradient(ellipse_at_top,rgba(255,236,205,0.7)_0%,rgba(255,236,205,0)_70%)]" />
+        <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(250,247,242,0.6)_0%,rgba(250,247,242,0.4)_35%,rgba(250,247,242,0.3)_100%)]" />
+      </div>
       <div className="container-x">
         {heading && (
           <SectionHeading
@@ -80,10 +87,10 @@ export function Gallery({
             <button
               key={`${item.title}-${i}`}
               onClick={() => setIndex(i)}
-              className="card-media group relative block w-full break-inside-avoid overflow-hidden rounded-2xl bg-card text-left shadow-card transition-shadow hover:shadow-lift"
+              className={cn("card-media group relative block w-full break-inside-avoid overflow-hidden rounded-2xl bg-card text-left shadow-card transition-shadow hover:shadow-lift", i >= 6 && "max-sm:hidden")}
             >
               {item.cat === "3D Design" && (
-                <span className="absolute top-3 left-3 z-10 rounded-full bg-ink/75 px-3 py-1 text-[0.65rem] tracking-[0.14em] text-background uppercase backdrop-blur-sm">
+                <span className="absolute top-3 left-3 z-10 rounded-full bg-ink/75 px-3 py-1 text-[0.7rem] tracking-[0.12em] text-background uppercase backdrop-blur-sm">
                   3D Concept
                 </span>
               )}
@@ -99,7 +106,7 @@ export function Gallery({
                 <span className="line-clamp-2 text-[0.78rem] leading-snug font-medium text-ink sm:truncate sm:text-sm">
                   {item.title}
                 </span>
-                <span className="shrink-0 text-[0.62rem] tracking-[0.16em] text-muted-foreground uppercase sm:text-[0.68rem] sm:tracking-[0.18em]">
+                <span className="shrink-0 text-[0.7rem] tracking-[0.14em] text-muted-foreground uppercase sm:text-[0.72rem] sm:tracking-[0.18em]">
                   {item.cat}
                 </span>
               </div>

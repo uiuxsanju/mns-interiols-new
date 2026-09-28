@@ -30,7 +30,7 @@ export function EstimateSection() {
           desc="An itemised, line-by-line quote in 24 hours. No account, no obligation, no hidden charges."
           align="center"
         />
-        <div className="section-gap grid gap-6 md:grid-cols-2">
+        <div className="section-gap grid max-md:-mx-4 max-md:flex max-md:snap-x max-md:snap-mandatory max-md:gap-3.5 max-md:overflow-x-auto max-md:scroll-px-4 max-md:px-4 max-md:pb-2 max-md:[scrollbar-width:none] max-md:*:min-w-0 max-md:*:shrink-0 max-md:*:basis-[82%] max-md:*:snap-start sm:max-md:-mx-6 sm:max-md:scroll-px-6 sm:max-md:px-6 sm:max-md:*:basis-[60%] gap-6 md:grid-cols-2">
           {cards.map((c) => (
             <article
               key={c.title}

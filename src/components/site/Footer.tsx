@@ -270,7 +270,7 @@ export function Footer() {
                   <a
                     key={n.href}
                     href={n.href}
-                    className="block text-[0.9rem] leading-snug font-medium whitespace-nowrap text-[#202020] transition-colors hover:text-[#A95F35] max-[375px]:text-[0.82rem] sm:text-[0.98rem]"
+                    className="block py-2 text-[0.9rem] leading-snug font-medium whitespace-nowrap text-[#202020] transition-colors hover:text-[#A95F35] max-[375px]:text-[0.82rem] sm:text-[0.98rem]"
                   >
                     {n.text}
                   </a>
@@ -317,11 +317,11 @@ export function Footer() {
             </span>
           </p>
           <div className="flex items-center gap-4">
-            <Link to="/contact" className="hover:text-[#A95F35]">
+            <Link to="/contact" className="inline-flex min-h-11 items-center hover:text-[#A95F35]">
               Privacy Policy
             </Link>
             <span aria-hidden className="h-4 w-px bg-[#D5C8B4]" />
-            <Link to="/contact" className="hover:text-[#A95F35]">
+            <Link to="/contact" className="inline-flex min-h-11 items-center hover:text-[#A95F35]">
               Terms &amp; Conditions
             </Link>
           </div>

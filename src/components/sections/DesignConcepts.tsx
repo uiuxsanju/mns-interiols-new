@@ -62,7 +62,7 @@ export function DesignConcepts() {
             onClick={() => setIndex(i)}
             className="card-media group relative block w-full break-inside-avoid overflow-hidden rounded-2xl bg-card text-left shadow-card transition-shadow hover:shadow-lift"
           >
-            <span className="absolute top-3 left-3 z-10 rounded-full bg-ink/75 px-3 py-1 text-[0.65rem] tracking-[0.14em] text-background uppercase backdrop-blur-sm">
+            <span className="absolute top-3 left-3 z-10 rounded-full bg-ink/75 px-3 py-1 text-[0.7rem] tracking-[0.12em] text-background uppercase backdrop-blur-sm">
               3D Concept
             </span>
             <img
@@ -77,7 +77,7 @@ export function DesignConcepts() {
               <span className="line-clamp-2 text-[0.78rem] leading-snug font-medium text-ink sm:truncate sm:text-sm">
                 {item.title}
               </span>
-              <span className="shrink-0 text-[0.62rem] tracking-[0.16em] text-muted-foreground uppercase sm:text-[0.68rem] sm:tracking-[0.18em]">
+              <span className="shrink-0 text-[0.7rem] tracking-[0.14em] text-muted-foreground uppercase sm:text-[0.72rem] sm:tracking-[0.18em]">
                 {item.room}
               </span>
             </div>

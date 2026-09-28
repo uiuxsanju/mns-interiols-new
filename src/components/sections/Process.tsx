@@ -57,7 +57,7 @@ export function Process() {
                   <span className="grid h-10 w-10 place-items-center rounded-full border-2 border-primary bg-background text-primary">
                     <Icon className="h-4 w-4" />
                   </span>
-                  <p className="mt-4 text-[0.68rem] font-semibold tracking-[0.16em] text-primary uppercase">
+                  <p className="mt-4 text-[0.74rem] font-semibold tracking-[0.14em] text-primary uppercase">
                     Step {s.no}
                   </p>
                   <h3 className="font-display mt-1 text-[1.02rem] leading-snug">{s.title}</h3>
@@ -88,7 +88,7 @@ export function Process() {
                 <span className="group relative z-10 grid h-10 w-10 shrink-0 place-items-center rounded-full border-2 border-[#E8A25B] bg-[#1F1610] text-[#E8A25B] transition-colors duration-300 hover:bg-[#E8A25B] hover:text-[#1F1610]">
                   <Icon className="h-4 w-4" />
                 </span>
-                <p className="mt-4 text-[0.68rem] font-semibold tracking-[0.16em] text-[#E8A25B] uppercase">
+                <p className="mt-4 text-[0.74rem] font-semibold tracking-[0.14em] text-[#E8A25B] uppercase">
                   Step {s.no}
                 </p>
                 <h3 className="font-display mt-1 text-[1.02rem] leading-snug text-[#F5EDE0]">{s.title}</h3>

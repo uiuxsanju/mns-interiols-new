@@ -88,7 +88,7 @@ export function StudioFilms() {
               onMouseLeave={() => setHovered((h) => (h === film.id ? null : h))}
               className="group relative w-[68%] shrink-0 snap-start overflow-hidden rounded-2xl bg-[#211D18] text-left shadow-[0_1px_2px_rgba(0,0,0,0.2),0_20px_44px_-24px_rgba(0,0,0,0.6)] ring-1 ring-background/10 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 sm:w-[280px] lg:w-[300px]"
             >
-              <span className="absolute top-3 left-3 z-10 rounded-full bg-black/55 px-3 py-1 text-[0.64rem] tracking-[0.16em] text-background uppercase backdrop-blur-sm">
+              <span className="absolute top-3 left-3 z-10 rounded-full bg-black/55 px-3 py-1 text-[0.7rem] tracking-[0.14em] text-background uppercase backdrop-blur-sm">
                 {film.room}
               </span>
               <div className="aspect-[3/4] w-full overflow-hidden">

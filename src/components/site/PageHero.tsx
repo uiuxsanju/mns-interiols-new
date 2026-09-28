@@ -14,7 +14,7 @@ export function PageHero({
       <img src={image} alt={title} width={1200} height={900} className="absolute inset-0 h-full w-full object-cover" />
       <div className="hero-scrim absolute inset-0" />
       <div className="container-x relative py-14 sm:py-20 lg:py-32">
-        <p className="text-[0.65rem] tracking-[0.26em] text-background/70 uppercase sm:text-[0.7rem] sm:tracking-[0.28em]">
+        <p className="text-[0.7rem] tracking-[0.24em] text-background/70 uppercase sm:text-[0.7rem] sm:tracking-[0.28em]">
           {eyebrow}
         </p>
         <h1 className="text-display-1 mt-3 max-w-3xl text-balance text-background sm:mt-4">

@@ -122,11 +122,11 @@ export function Header() {
             </Button>
             <p className="text-center text-sm text-muted-foreground">
               Or call{" "}
-              <a href={brand.phoneHref} className="whitespace-nowrap text-ink hover:text-primary">
+              <a href={brand.phoneHref} className="inline-flex min-h-11 items-center whitespace-nowrap text-ink hover:text-primary">
                 {brand.phone}
               </a>{" "}
               /{" "}
-              <a href={brand.phone2Href} className="whitespace-nowrap text-ink hover:text-primary">
+              <a href={brand.phone2Href} className="inline-flex min-h-11 items-center whitespace-nowrap text-ink hover:text-primary">
                 {brand.phone2}
               </a>
             </p>
