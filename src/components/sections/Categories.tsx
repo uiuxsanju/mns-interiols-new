@@ -1,38 +1,61 @@
 import { Link } from "@tanstack/react-router";
 import { categories } from "@/lib/site-data";
-import { SectionHeading } from "@/components/site/SectionHeading";
+import { Reveal } from "@/components/site/Reveal";
 
-// Compact photo tiles — clearer at a glance and lighter on mobile than
-// a large image with text overlaid on top of it.
+const TERRACOTTA = "#A95F35";
+
+// Compact photo tiles on a warm marble backdrop, each image capped with a
+// label plate that overlaps its bottom edge (matches the client's reference).
 export function Categories() {
   return (
-    <section className="container-x section-y">
-      <SectionHeading
-        eyebrow="Interior Categories"
-        title="Every room, designed with intent"
-        desc="Ten specialisations, one team. Pick a space to see how we plan storage, light and movement around it."
+    <section className="relative isolate overflow-hidden bg-[linear-gradient(180deg,#FBF7F0_0%,#F6EEE0_100%)] py-14 sm:py-20 lg:py-24">
+      {/* Soft warm-wood glows, echoing the marble + timber reference. */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -top-24 -left-24 -z-10 h-72 w-72 rounded-full bg-[#C79A63]/20 blur-3xl sm:h-96 sm:w-96"
       />
-      {/* 10 tiles divide evenly at every breakpoint we use — 2 columns (5 rows)
-          on mobile/tablet, 5 columns (2 rows) from `sm` up — so the grid never
-          ends in a dangling half-empty row. */}
-      <div className="section-gap grid grid-cols-2 gap-3 sm:grid-cols-5 sm:gap-4">
-        {categories.map((cat) => (
-          <Link key={cat.title} to={cat.to ?? "/gallery"} className="group block">
-            <div className="relative overflow-hidden rounded-2xl bg-card shadow-card ring-1 ring-transparent transition-[box-shadow,transform] duration-300 group-hover:-translate-y-0.5 group-hover:shadow-lift group-hover:ring-primary/30">
-              <img
-                src={cat.image}
-                alt={cat.title}
-                loading="lazy"
-                width={600}
-                height={600}
-                className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-            <p className="mt-2.5 line-clamp-2 text-[0.78rem] leading-tight font-medium text-ink sm:text-[0.85rem]">
-              {cat.title}
-            </p>
-          </Link>
-        ))}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -right-24 -bottom-24 -z-10 h-72 w-72 rounded-full bg-[#C79A63]/20 blur-3xl sm:h-96 sm:w-96"
+      />
+
+      <div className="container-x">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <h2 className="font-editorial text-[2.1rem] leading-[1.1] text-balance text-[#20201E] max-[375px]:text-[1.8rem] sm:text-[2.75rem] lg:text-[3.25rem]">
+            Our <span style={{ color: TERRACOTTA }}>Interior</span> Solutions
+          </h2>
+          <p className="mt-4 flex items-center justify-center gap-3 text-[0.68rem] font-semibold tracking-[0.26em] text-[#8A7F6E] uppercase sm:text-[0.75rem]">
+            <span aria-hidden className="h-px w-8 bg-current opacity-50 sm:w-12" />
+            Modern designs for better spaces
+            <span aria-hidden className="h-px w-8 bg-current opacity-50 sm:w-12" />
+          </p>
+        </Reveal>
+
+        {/* 10 tiles divide evenly at every breakpoint we use — 2 columns (5 rows)
+            on mobile/tablet, 5 columns (2 rows) from `sm` up — so the grid never
+            ends in a dangling half-empty row. */}
+        <div className="mt-9 grid grid-cols-2 gap-x-3 gap-y-5 sm:mt-14 sm:grid-cols-5 sm:gap-x-4 sm:gap-y-7">
+          {categories.map((cat, i) => (
+            <Reveal key={cat.title} delay={i * 40}>
+              <Link to={cat.to ?? "/gallery"} className="group block">
+                <div className="relative overflow-hidden rounded-2xl bg-card shadow-[0_14px_30px_-16px_rgba(60,45,25,0.35)] ring-1 ring-[#EADFC8] transition-[box-shadow,transform] duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_20px_38px_-16px_rgba(60,45,25,0.4)]">
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    loading="lazy"
+                    width={600}
+                    height={600}
+                    className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                {/* Label plate overlaps the image's bottom edge. */}
+                <p className="relative z-10 -mt-4 mx-2 line-clamp-2 rounded-lg bg-[#FFFDF9] px-2 py-2 text-center text-[0.72rem] leading-tight font-semibold text-[#20201E] shadow-[0_8px_18px_-10px_rgba(60,45,25,0.3)] ring-1 ring-[#EADFC8] sm:mx-3 sm:px-3 sm:text-[0.82rem]">
+                  {cat.title}
+                </p>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
