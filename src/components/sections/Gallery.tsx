@@ -5,6 +5,7 @@ import { galleryItems, galleryTabs } from "@/lib/site-data";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { cn } from "@/lib/utils";
 import { useScrollLock } from "@/lib/use-scroll-lock";
+import { BodyPortal } from "@/components/site/BodyPortal";
 
 export function Gallery({
   heading = true,
@@ -87,7 +88,10 @@ export function Gallery({
             <button
               key={`${item.title}-${i}`}
               onClick={() => setIndex(i)}
-              className={cn("card-media group relative block w-full break-inside-avoid overflow-hidden rounded-2xl bg-card text-left shadow-card transition-shadow hover:shadow-lift", i >= 6 && "max-sm:hidden")}
+              className={cn(
+                "card-media group relative block w-full break-inside-avoid overflow-hidden rounded-2xl bg-card text-left shadow-card transition-shadow hover:shadow-lift",
+                i >= 6 && "max-sm:hidden",
+              )}
             >
               {item.cat === "3D Design" && (
                 <span className="absolute top-3 left-3 z-10 rounded-full bg-ink/75 px-3 py-1 text-[0.7rem] tracking-[0.12em] text-background uppercase backdrop-blur-sm">
@@ -127,51 +131,53 @@ export function Gallery({
         )}
 
         {active && (
-          <div
-            className="fixed inset-0 z-100 flex items-center justify-center bg-ink/95 p-4 animate-in fade-in"
-            role="dialog"
-            aria-modal="true"
-            onClick={() => setIndex(null)}
-          >
-            <button
-              aria-label="Close"
+          <BodyPortal>
+            <div
+              className="fixed inset-0 z-100 flex items-center justify-center bg-ink/95 p-4 animate-in fade-in"
+              role="dialog"
+              aria-modal="true"
               onClick={() => setIndex(null)}
-              className="absolute top-5 right-5 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10"
             >
-              <X className="h-5 w-5" />
-            </button>
-            <button
-              aria-label="Previous image"
-              onClick={(e) => {
-                e.stopPropagation();
-                setIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
-              }}
-              className="absolute left-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:left-8"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              aria-label="Next image"
-              onClick={(e) => {
-                e.stopPropagation();
-                setIndex((i) => (i === null ? i : (i + 1) % items.length));
-              }}
-              className="absolute right-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:right-8"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-            <figure className="max-h-full w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
-              <img
-                src={active.image}
-                alt={active.title}
-                className="max-h-[78svh] w-full rounded-xl object-contain"
-              />
-              <figcaption className="mt-4 text-center text-sm text-background/75">
-                {active.title} · {active.cat}
-                {active.cat === "3D Design" ? " · 3D Concept Render" : ""}
-              </figcaption>
-            </figure>
-          </div>
+              <button
+                aria-label="Close"
+                onClick={() => setIndex(null)}
+                className="absolute top-5 right-5 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10"
+              >
+                <X className="h-5 w-5" />
+              </button>
+              <button
+                aria-label="Previous image"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
+                }}
+                className="absolute left-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:left-8"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                aria-label="Next image"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIndex((i) => (i === null ? i : (i + 1) % items.length));
+                }}
+                className="absolute right-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:right-8"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+              <figure className="max-h-full w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
+                <img
+                  src={active.image}
+                  alt={active.title}
+                  className="max-h-[78svh] w-full rounded-xl object-contain"
+                />
+                <figcaption className="mt-4 text-center text-sm text-background/75">
+                  {active.title} · {active.cat}
+                  {active.cat === "3D Design" ? " · 3D Concept Render" : ""}
+                </figcaption>
+              </figure>
+            </div>
+          </BodyPortal>
         )}
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollLock } from "@/lib/use-scroll-lock";
+import { BodyPortal } from "@/components/site/BodyPortal";
 
 export function Lightbox({
   images,
@@ -45,57 +46,59 @@ export function Lightbox({
   }
 
   return (
-    <div
-      className="fixed inset-0 z-100 flex items-center justify-center bg-ink/95 p-4 animate-in fade-in"
-      role="dialog"
-      aria-modal="true"
-      onClick={onClose}
-      onTouchStart={onTouchStart}
-      onTouchEnd={onTouchEnd}
-    >
-      <button
-        aria-label="Close"
+    <BodyPortal>
+      <div
+        className="fixed inset-0 z-100 flex items-center justify-center bg-ink/95 p-4 animate-in fade-in"
+        role="dialog"
+        aria-modal="true"
         onClick={onClose}
-        className="absolute top-5 right-5 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10"
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
       >
-        <X className="h-5 w-5" />
-      </button>
-      {images.length > 1 && (
-        <>
-          <button
-            aria-label="Previous image"
-            onClick={(e) => {
-              e.stopPropagation();
-              onNavigate((index - 1 + images.length) % images.length);
-            }}
-            className="absolute left-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:left-8"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
-            aria-label="Next image"
-            onClick={(e) => {
-              e.stopPropagation();
-              onNavigate((index + 1) % images.length);
-            }}
-            className="absolute right-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:right-8"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-        </>
-      )}
-      <figure className="max-h-full w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
-        <img
-          src={images[index]}
-          alt={`${alt} — photo ${index + 1} of ${images.length}`}
-          className="max-h-[78svh] w-full rounded-xl object-contain transition-opacity duration-200"
-        />
+        <button
+          aria-label="Close"
+          onClick={onClose}
+          className="absolute top-5 right-5 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10"
+        >
+          <X className="h-5 w-5" />
+        </button>
         {images.length > 1 && (
-          <figcaption className="mt-4 text-center text-sm text-background/75">
-            {index + 1} / {images.length}
-          </figcaption>
+          <>
+            <button
+              aria-label="Previous image"
+              onClick={(e) => {
+                e.stopPropagation();
+                onNavigate((index - 1 + images.length) % images.length);
+              }}
+              className="absolute left-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:left-8"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              aria-label="Next image"
+              onClick={(e) => {
+                e.stopPropagation();
+                onNavigate((index + 1) % images.length);
+              }}
+              className="absolute right-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:right-8"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </>
         )}
-      </figure>
-    </div>
+        <figure className="max-h-full w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
+          <img
+            src={images[index]}
+            alt={`${alt} — photo ${index + 1} of ${images.length}`}
+            className="max-h-[78svh] w-full rounded-xl object-contain transition-opacity duration-200"
+          />
+          {images.length > 1 && (
+            <figcaption className="mt-4 text-center text-sm text-background/75">
+              {index + 1} / {images.length}
+            </figcaption>
+          )}
+        </figure>
+      </div>
+    </BodyPortal>
   );
 }

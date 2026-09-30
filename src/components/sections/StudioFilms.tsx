@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 import { studioFilms } from "@/lib/studio-films";
 import { useScrollLock } from "@/lib/use-scroll-lock";
+import { BodyPortal } from "@/components/site/BodyPortal";
 
 // Real, unscripted clips from MNS Interiors' own site visits, installs and
 // handovers (sourced from the studio's Instagram). Videos are served from
@@ -53,8 +54,8 @@ export function StudioFilms() {
               Real projects, in motion
             </h2>
             <p className="mt-3 text-[0.92rem] leading-relaxed text-background/70 sm:text-base">
-              Unscripted clips from our own site visits, installs and handovers across Visakhapatnam —
-              the craft and the payoff, filmed as it happened.
+              Unscripted clips from our own site visits, installs and handovers across Visakhapatnam
+              — the craft and the payoff, filmed as it happened.
             </p>
           </div>
           <div className="flex shrink-0 gap-2.5">
@@ -131,34 +132,36 @@ export function StudioFilms() {
       </div>
 
       {activeFilm && (
-        <div
-          className="fixed inset-0 z-100 flex items-center justify-center bg-black/95 p-4 animate-in fade-in"
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setActive(null)}
-        >
-          <button
-            aria-label="Close"
+        <BodyPortal>
+          <div
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/95 p-4 animate-in fade-in"
+            role="dialog"
+            aria-modal="true"
             onClick={() => setActive(null)}
-            className="absolute top-5 right-5 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10"
           >
-            <X className="h-5 w-5" />
-          </button>
-          <figure className="max-h-full w-full max-w-sm" onClick={(e) => e.stopPropagation()}>
-            <video
-              key={activeFilm.id}
-              src={activeFilm.video}
-              poster={activeFilm.poster}
-              controls
-              autoPlay
-              playsInline
-              className="max-h-[80svh] w-full rounded-xl bg-black object-contain"
-            />
-            <figcaption className="mt-4 text-center text-sm text-background/75">
-              {activeFilm.title} · {activeFilm.room}
-            </figcaption>
-          </figure>
-        </div>
+            <button
+              aria-label="Close"
+              onClick={() => setActive(null)}
+              className="absolute top-5 right-5 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <figure className="max-h-full w-full max-w-sm" onClick={(e) => e.stopPropagation()}>
+              <video
+                key={activeFilm.id}
+                src={activeFilm.video}
+                poster={activeFilm.poster}
+                controls
+                autoPlay
+                playsInline
+                className="max-h-[80svh] w-full rounded-xl bg-black object-contain"
+              />
+              <figcaption className="mt-4 text-center text-sm text-background/75">
+                {activeFilm.title} · {activeFilm.room}
+              </figcaption>
+            </figure>
+          </div>
+        </BodyPortal>
       )}
     </section>
   );

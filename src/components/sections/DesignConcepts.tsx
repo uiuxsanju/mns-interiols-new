@@ -3,6 +3,7 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { renderImages, renderRooms } from "@/lib/render-images";
 import { cn } from "@/lib/utils";
 import { useScrollLock } from "@/lib/use-scroll-lock";
+import { BodyPortal } from "@/components/site/BodyPortal";
 
 // Gallery of photoreal 3D design-concept renders, pulled from MNS Interiors'
 // own client presentation decks. Deliberately kept visually separate from
@@ -24,7 +25,8 @@ export function DesignConcepts() {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIndex(null);
       if (e.key === "ArrowRight") setIndex((i) => (i === null ? i : (i + 1) % items.length));
-      if (e.key === "ArrowLeft") setIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
+      if (e.key === "ArrowLeft")
+        setIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -86,50 +88,52 @@ export function DesignConcepts() {
       </div>
 
       {active && (
-        <div
-          className="fixed inset-0 z-100 flex items-center justify-center bg-ink/95 p-4 animate-in fade-in"
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setIndex(null)}
-        >
-          <button
-            aria-label="Close"
+        <BodyPortal>
+          <div
+            className="fixed inset-0 z-100 flex items-center justify-center bg-ink/95 p-4 animate-in fade-in"
+            role="dialog"
+            aria-modal="true"
             onClick={() => setIndex(null)}
-            className="absolute top-5 right-5 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10"
           >
-            <X className="h-5 w-5" />
-          </button>
-          <button
-            aria-label="Previous image"
-            onClick={(e) => {
-              e.stopPropagation();
-              setIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
-            }}
-            className="absolute left-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:left-8"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
-            aria-label="Next image"
-            onClick={(e) => {
-              e.stopPropagation();
-              setIndex((i) => (i === null ? i : (i + 1) % items.length));
-            }}
-            className="absolute right-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:right-8"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-          <figure className="max-h-full w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={active.src}
-              alt={active.title}
-              className="max-h-[78svh] w-full rounded-xl object-contain"
-            />
-            <figcaption className="mt-4 text-center text-sm text-background/75">
-              {active.title} · {active.room} · 3D Concept Render
-            </figcaption>
-          </figure>
-        </div>
+            <button
+              aria-label="Close"
+              onClick={() => setIndex(null)}
+              className="absolute top-5 right-5 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <button
+              aria-label="Previous image"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
+              }}
+              className="absolute left-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:left-8"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              aria-label="Next image"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIndex((i) => (i === null ? i : (i + 1) % items.length));
+              }}
+              className="absolute right-3 grid h-11 w-11 place-items-center rounded-full border border-background/25 text-background hover:bg-background/10 lg:right-8"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+            <figure className="max-h-full w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
+              <img
+                src={active.src}
+                alt={active.title}
+                className="max-h-[78svh] w-full rounded-xl object-contain"
+              />
+              <figcaption className="mt-4 text-center text-sm text-background/75">
+                {active.title} · {active.room} · 3D Concept Render
+              </figcaption>
+            </figure>
+          </div>
+        </BodyPortal>
       )}
     </section>
   );
