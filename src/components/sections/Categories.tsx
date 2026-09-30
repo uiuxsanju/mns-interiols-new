@@ -1,8 +1,24 @@
 import { Link } from "@tanstack/react-router";
-import { categories } from "@/lib/site-data";
 import { Reveal } from "@/components/site/Reveal";
 
 const ACCENT = "#E8A25B";
+
+const solutions: { title: string; image: string; to: string }[] = [
+  { title: "Modular Kitchen", image: "modular-kitchen", to: "/modular-kitchens" },
+  { title: "Wardrobes", image: "wardrobes", to: "/wardrobes" },
+  { title: "TV Units", image: "tv-units", to: "/gallery" },
+  { title: "Crockery Units", image: "crockery-units", to: "/gallery" },
+  { title: "Study Tables", image: "study-tables", to: "/home-office" },
+  { title: "False Ceiling", image: "false-ceiling", to: "/gallery" },
+  { title: "Lighting", image: "lighting", to: "/gallery" },
+  { title: "Wallpaper", image: "wallpaper", to: "/gallery" },
+  { title: "Wall Paint", image: "wall-paint", to: "/gallery" },
+  { title: "Bathroom", image: "bathroom", to: "/bathrooms" },
+  { title: "Pooja Unit", image: "pooja-unit", to: "/gallery" },
+  { title: "Foyer", image: "foyer", to: "/gallery" },
+  { title: "Kids Bedroom", image: "kids-bedroom", to: "/bedrooms" },
+  { title: "Movable Furniture", image: "movable-furniture", to: "/gallery" },
+];
 
 // Compact photo tiles on a fluted-wood wall (client's texture), each image
 // capped with a label plate that overlaps its bottom edge.
@@ -32,25 +48,29 @@ export function Categories() {
           </p>
         </Reveal>
 
-        {/* 10 tiles divide evenly at every breakpoint we use — 2 columns (5 rows)
-            on mobile/tablet, 5 columns (2 rows) from `sm` up — so the grid never
-            ends in a dangling half-empty row. */}
-        <div className="mt-9 grid grid-cols-2 gap-x-3 gap-y-5 sm:mt-14 sm:grid-cols-5 sm:gap-x-4 sm:gap-y-7">
-          {categories.map((cat, i) => (
-            <Reveal key={cat.title} delay={i * 40}>
-              <Link to={cat.to ?? "/gallery"} className="group block">
+        {/* 14 tiles, centred rows: 2 per row on phones, 3 on tablets, 4 on
+            small laptops, 7 (two full rows) on desktop, so no row ever ends
+            left-aligned and half empty. */}
+        <div className="mt-9 flex flex-wrap justify-center gap-x-3 gap-y-5 sm:mt-14 sm:gap-x-4 sm:gap-y-7">
+          {solutions.map((cat, i) => (
+            <Reveal
+              key={cat.title}
+              delay={(i % 7) * 40}
+              className="w-[calc(50%-0.375rem)] sm:w-[calc(33.333%-0.7rem)] md:w-[calc(25%-0.75rem)] lg:w-[calc(14.285%-0.86rem)]"
+            >
+              <Link to={cat.to} className="group block">
                 <div className="relative overflow-hidden rounded-2xl bg-card shadow-[0_14px_30px_-16px_rgba(60,45,25,0.35)] ring-1 ring-[#EADFC8] transition-[box-shadow,transform] duration-300 group-hover:-translate-y-0.5 group-hover:shadow-[0_20px_38px_-16px_rgba(60,45,25,0.4)]">
                   <img
-                    src={cat.image}
+                    src={`/images/solutions/${cat.image}.webp`}
                     alt={cat.title}
                     loading="lazy"
-                    width={600}
-                    height={600}
-                    className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    width={615}
+                    height={474}
+                    className="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
                 {/* Label plate overlaps the image's bottom edge. */}
-                <p className="relative z-10 -mt-4 mx-2 line-clamp-2 rounded-lg bg-[#FFFDF9] px-2 py-2 text-center text-[0.72rem] leading-tight font-semibold text-[#20201E] shadow-[0_8px_18px_-10px_rgba(60,45,25,0.3)] ring-1 ring-[#EADFC8] sm:mx-3 sm:px-3 sm:text-[0.82rem]">
+                <p className="relative z-10 -mt-4 mx-2 line-clamp-2 rounded-lg bg-[#FFFDF9] px-2 py-2 text-center text-[0.75rem] leading-tight font-semibold text-[#20201E] shadow-[0_8px_18px_-10px_rgba(60,45,25,0.3)] ring-1 ring-[#EADFC8] sm:px-3 sm:text-[0.82rem]">
                   {cat.title}
                 </p>
               </Link>

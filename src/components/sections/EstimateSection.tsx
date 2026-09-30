@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { useEstimate } from "@/components/site/estimate-context";
-import fullHomeInteriors from "@/assets/portfolio/living-room-green-wall-tv-unit.webp";
-import modularKitchen from "@/assets/portfolio/kitchen-marble-island-pendant-lights.webp";
+import fullHomeInteriors from "@/assets/estimate/full-home-interiors.webp";
+import modularKitchen from "@/assets/estimate/modular-kitchen.webp";
 import { InteriorBackdrop } from "@/components/site/InteriorBackdrop";
 
 const cards = [

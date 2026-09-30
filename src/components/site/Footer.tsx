@@ -62,11 +62,36 @@ const socials: {
   label: string;
   color: string;
 }[] = [
-  { Icon: Instagram, href: "https://www.instagram.com/mnsinteriors/", label: "MNS Interiors on Instagram", color: "#D6249F" },
-  { Icon: Facebook, href: "https://www.facebook.com/share/1cFAJ6NSvw/", label: "MNS Interiors on Facebook", color: "#1877F2" },
-  { Icon: Linkedin, href: "https://www.linkedin.com/in/mns-interiors-09a520176", label: "MNS Interiors on LinkedIn", color: "#0A66C2" },
-  { Icon: Youtube, href: "https://www.youtube.com/@mnsinteriors", label: "MNS Interiors on YouTube", color: "#FF0000" },
-  { Icon: ThreadsIcon, href: "https://www.threads.com/@mnsinteriors", label: "MNS Interiors on Threads", color: "#000000" },
+  {
+    Icon: Instagram,
+    href: "https://www.instagram.com/mnsinteriors/",
+    label: "MNS Interiors on Instagram",
+    color: "#D6249F",
+  },
+  {
+    Icon: Facebook,
+    href: "https://www.facebook.com/share/1cFAJ6NSvw/",
+    label: "MNS Interiors on Facebook",
+    color: "#1877F2",
+  },
+  {
+    Icon: Linkedin,
+    href: "https://www.linkedin.com/in/mns-interiors-09a520176",
+    label: "MNS Interiors on LinkedIn",
+    color: "#0A66C2",
+  },
+  {
+    Icon: Youtube,
+    href: "https://www.youtube.com/@mnsinteriors",
+    label: "MNS Interiors on YouTube",
+    color: "#FF0000",
+  },
+  {
+    Icon: ThreadsIcon,
+    href: "https://www.threads.com/@mnsinteriors",
+    label: "MNS Interiors on Threads",
+    color: "#000000",
+  },
 ];
 
 const TERRACOTTA = "#A95F35";
@@ -216,8 +241,8 @@ export function Footer() {
               />
             </Link>
             <p className="mt-5 max-w-[430px] text-[0.95rem] leading-relaxed text-[#5F5A55]">
-              Full-home interiors and modular furniture — consultation, designing and execution under one roof.
-              Serving Visakhapatnam and North Andhra Pradesh.
+              Full-home interiors and modular furniture — consultation, designing and execution
+              under one roof. Serving Visakhapatnam and North Andhra Pradesh.
             </p>
             <div className="mt-6 flex gap-3">
               {socials.map(({ Icon, href, label, color }) => (
@@ -308,7 +333,7 @@ export function Footer() {
 
         {/* Bottom bar — extra bottom padding on mobile so the floating
             WhatsApp/Call buttons never sit on top of this text. */}
-        <div className="mt-10 flex flex-col gap-3 border-t border-[#E0D4C1] pt-6 pb-36 text-[0.85rem] text-[#5F5A55] sm:flex-row sm:items-center sm:justify-between lg:pr-16 lg:pb-8">
+        <div className="mt-10 flex flex-col gap-3 border-t border-[#E0D4C1] pt-6 pb-10 max-[360px]:pb-36 sm:pb-36 text-[0.85rem] text-[#5F5A55] sm:flex-row sm:items-center sm:justify-between lg:pr-16 lg:pb-8">
           <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <span>© {year} MNS Interiors. All Rights Reserved.</span>
             <span aria-hidden className="hidden h-4 w-px bg-[#D5C8B4] sm:block" />
