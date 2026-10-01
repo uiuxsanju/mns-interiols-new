@@ -7,6 +7,7 @@ import { WhyUs } from "@/components/sections/WhyUs";
 import { Gallery } from "@/components/sections/Gallery";
 import { StudioFilms } from "@/components/sections/StudioFilms";
 import { Founders } from "@/components/sections/Founders";
+import { FounderSpotlight } from "@/components/sections/FounderSpotlight";
 import { Clients } from "@/components/sections/Clients";
 import { Services } from "@/components/sections/Services";
 import { Testimonials } from "@/components/sections/Testimonials";
@@ -35,8 +36,7 @@ function Index() {
     <>
       {/* Order alternates light and dark/photo sections so no two heavy
           backgrounds sit next to each other. Repeated content was removed:
-          the 14-tile Solutions grid (same as Categories + Services) and the
-          Founder Spotlight (moved to /about; Founders already covers it). */}
+          the old 14-tile Solutions grid (now the Categories section). */}
       <Hero />
       <EstimateSection />
       <Categories />
@@ -48,6 +48,7 @@ function Index() {
       <Clients />
       <Testimonials />
       <Founders />
+      <FounderSpotlight />
       <CtaBanner />
       <Memberships />
       <Faq />
